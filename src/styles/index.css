@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  color: #262626;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Typography styles */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  margin: 0;
+}
+
+p {
+  line-height: 1.5;
+}
+
+/* Button styles */
+.btn {
+  @apply inline-flex items-center justify-center rounded-md px-24 py-8 font-medium transition-all duration-300 focus:outline-none;
+}
+
+.btn-primary {
+  @apply bg-primary-500 text-white hover:bg-primary-600;
+}
+
+
+.btn-outline {
+  @apply border-2 border-primary-500 text-primary-500 hover:bg-primary-50;
+}
+
+.btn-secondary {
+  @apply bg-secondary-500 text-white hover:bg-secondary-600;
+}
+
+/* Container styles */
+.container-custom {
+  @apply mx-auto px-16 md:px-24 lg:px-40;
+  max-width: 1440px;
+}
+.container-custom-nav {
+  @apply mx-auto px-16 md:px-12 lg:px-16;
+  max-width: 1440px;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-lg shadow-card transition-all duration-300;
+}
+
+.card-hover {
+  @apply hover:shadow-card-hover hover:-translate-y-2;
+}
+
+/* Section spacing */
+.section {
+  @apply py-48 md:py-64 lg:py-80;
+}
+
+/* Focus states */
+a:focus, button:focus {
+  @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+}
+
+/* Animation classes */
+.animate-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animate-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animate-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animate-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animate-delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Helper classes */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Navbar styling */
+.nav-link {
+  @apply relative text-neutral-700 hover:text-primary-500 transition-colors duration-300;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.nav-link.active {
+  @apply text-primary-500;
+}
+
+.nav-link.active::after {
+  @apply w-full;
+}
