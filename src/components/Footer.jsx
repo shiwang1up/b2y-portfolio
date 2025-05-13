@@ -54,7 +54,7 @@ const Footer = () => {
             </div>
             <p className="text-neutral-300 mb-24">
               Driving digital transformation with innovative IT solutions that
-              empower businesses to thrive in today's competitive landscape.
+              empower businesses to thrive in today&#39;s competitive landscape.
             </p>
             <div className="flex space-x-16">
               <motion.a
@@ -95,7 +95,7 @@ const Footer = () => {
           {/* Services */}
           <motion.div variants={itemVariants}>
             <h3 className="text-xl font-semibold mb-24">Services</h3>
-            <ul className="space-y-12">
+            <ul className="space-y-8">
               {[
                 "Software Development",
                 "Cloud Solutions",
@@ -119,7 +119,7 @@ const Footer = () => {
           {/* Quick Links */}
           <motion.div variants={itemVariants}>
             <h3 className="text-xl font-semibold mb-24">Quick Links</h3>
-            <ul className="space-y-12">
+            <ul className="space-y-8">
               {[
                 "About Us",
                 "Case Studies",
@@ -143,29 +143,32 @@ const Footer = () => {
           {/* Contact Info */}
           <motion.div variants={itemVariants}>
             <h3 className="text-xl font-semibold mb-24">Contact Us</h3>
-            <ul className="space-y-16">
+            <ul className="space-y-8">
               <li className="flex items-start">
-                <FiMapPin className="mt-4 mr-12 text-primary-400" />
-                <span className="text-neutral-300">
-                  1234 Tech Boulevard, Innovation District, CA 98765
-                </span>
+                <FiMapPin className="mt-4 mr-12 text-primary-400" size={28} />
+                <p className="text-neutral-300">
+                  301/302, 3rd Floor, <br />
+                  Saket Callipolis,
+                  <br /> Sarjapur - Marathahalli Road, Doddakannelli,
+                  <br /> Bengaluru, Karnataka - 560035
+                </p>
               </li>
               <li className="flex items-center">
-                <FiPhone className="mr-12 text-primary-400" />
+                <FiPhone className="mr-12 text-primary-400" size={18} />
                 <a
                   href="tel:+1234567890"
                   className="text-neutral-300 hover:text-primary-400 transition-colors duration-300"
                 >
-                  +1 (234) 567-890
+                  (+91) 7989739209
                 </a>
               </li>
               <li className="flex items-center">
-                <FiMail className="mr-12 text-primary-400" />
+                <FiMail className="mr-12 text-primary-400" size={18} />
                 <a
-                  href="mailto:info@thoughtsol.com"
+                  href="mailto:info@b2yinfy.com"
                   className="text-neutral-300 hover:text-primary-400 transition-colors duration-300"
                 >
-                  info@thoughtsol.com
+                  info@b2yinfy.com
                 </a>
               </li>
             </ul>

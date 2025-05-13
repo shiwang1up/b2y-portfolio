@@ -41,8 +41,8 @@ function App() {
         <Services />
         <About />
         <Statistics />
-        <Testimonials />
-        <Team />
+        {/* <Testimonials /> */}
+        {/* <Team /> */}
         <Blog />
         <Contact />
       </motion.main>

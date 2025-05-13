@@ -1,67 +1,68 @@
-import { useState, useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
-import { FiMapPin, FiPhone, FiMail, FiSend } from 'react-icons/fi'
-import SectionHeading from '../components/SectionHeading'
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { FiMapPin, FiPhone, FiMail, FiSend } from "react-icons/fi";
+import SectionHeading from "../components/SectionHeading";
 
 const Contact = () => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
-  
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  })
-  
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
   const [formStatus, setFormStatus] = useState({
     submitting: false,
     success: false,
     error: false,
-  })
-  
+  });
+
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-  }
-  
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setFormStatus({ submitting: true, success: false, error: false })
-    
+    e.preventDefault();
+    setFormStatus({ submitting: true, success: false, error: false });
+
     // Simulate form submission
     setTimeout(() => {
-      setFormStatus({ submitting: false, success: true, error: false })
-      setFormData({ name: '', email: '', subject: '', message: '' })
-      
+      setFormStatus({ submitting: false, success: true, error: false });
+      setFormData({ name: "", email: "", subject: "", message: "" });
+
       // Reset success message after 5 seconds
       setTimeout(() => {
-        setFormStatus({ submitting: false, success: false, error: false })
-      }, 5000)
-    }, 1500)
-  }
-  
+        setFormStatus({ submitting: false, success: false, error: false });
+      }, 5000);
+    }, 1500);
+  };
+
   const contactInfo = [
     {
       icon: <FiMapPin />,
-      title: 'Our Location',
-      content: '1234 Tech Boulevard, Innovation District, CA 98765',
-      link: '#',
+      title: "Our Location",
+      content:
+        "301/302, 3rd Floor, Saket Callipolis, Sarjapur - Marathahalli Road, Doddakannelli, Bengaluru, Karnataka - 560035",
+      link: "https://www.google.com/maps/place/InstaOffice/@12.90997,77.6857706,17z/data=!4m6!3m5!1s0x3bae132e49e27f9d:0x737e9514d6ec15c!8m2!3d12.9098307!4d77.6856961!16s%2Fg%2F11fpp6_4z6?entry=ttu&g_ep=EgoyMDI1MDUwNy4wIKXMDSoASAFQAw%3D%3D",
     },
     {
       icon: <FiPhone />,
-      title: 'Phone Number',
-      content: '+1 (234) 567-890',
-      link: 'tel:+1234567890',
+      title: "Phone Number",
+      content: "+91 7989739209",
+      link: "tel:+917989739209",
     },
     {
       icon: <FiMail />,
-      title: 'Email Address',
-      content: 'info@thoughtsol.com',
-      link: 'mailto:info@thoughtsol.com',
+      title: "Email Address",
+      content: "info@b2yinfy.com",
+      link: "mailto:info@b2yinfy.com",
     },
-  ]
-  
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -70,19 +71,23 @@ const Contact = () => {
         staggerChildren: 0.1,
       },
     },
-  }
-  
+  };
+
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  }
-  
+  };
+
   return (
-    <section id="contact" className="section bg-white relative overflow-hidden" ref={ref}>
+    <section
+      id="contact"
+      className="section bg-white relative overflow-hidden"
+      ref={ref}
+    >
       {/* Background decoration */}
       <div className="absolute -left-[10%] -bottom-[10%] w-[40%] h-[40%] rounded-full bg-primary-50 opacity-50"></div>
       <div className="absolute -right-[5%] -top-[15%] w-[30%] h-[30%] rounded-full bg-secondary-50 opacity-50"></div>
-      
+
       <div className="container-custom relative z-10">
         <SectionHeading
           subtitle="Contact Us"
@@ -90,10 +95,10 @@ const Contact = () => {
           description="Have a question or need assistance? Reach out to us, and our team will be glad to help you."
           center={true}
         />
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-32 lg:gap-48">
           {/* Contact Information */}
-          <motion.div 
+          <motion.div
             className="lg:col-span-1"
             variants={containerVariants}
             initial="hidden"
@@ -103,14 +108,20 @@ const Contact = () => {
               className="bg-primary-500 text-white rounded-xl p-32 h-full"
               variants={itemVariants}
             >
-              <h3 className="text-2xl font-semibold mb-32">Contact Information</h3>
+              <h3 className="text-2xl font-semibold mb-32">
+                Contact Information
+              </h3>
               <p className="mb-32 text-neutral-100">
-                Feel free to contact us through any of these channels. We're here to help and eager to hear from you.
+                Feel free to contact us through any of these channels. We&#39;re
+                here to help and eager to hear from you. <br />
+                <br />
+                We&#39;re here to help! Reach out today and let&#39;s create
+                something great together.
               </p>
-              
+
               <div className="space-y-24">
                 {contactInfo.map((item, index) => (
-                  <motion.div 
+                  <motion.div
                     key={index}
                     className="flex items-start"
                     whileHover={{ x: 5 }}
@@ -120,7 +131,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-medium mb-4">{item.title}</h4>
-                      <a 
+                      <a
                         href={item.link}
                         className="text-neutral-200 hover:text-white transition-colors duration-300"
                       >
@@ -130,11 +141,11 @@ const Contact = () => {
                   </motion.div>
                 ))}
               </div>
-              
+
               <div className="mt-48">
                 <h4 className="font-medium mb-16">Follow Us</h4>
                 <div className="flex space-x-12">
-                  {['LinkedIn', 'Twitter', 'Facebook'].map((social, index) => (
+                  {["LinkedIn", "Twitter", "Facebook"].map((social, index) => (
                     <motion.a
                       key={index}
                       href="#"
@@ -149,24 +160,31 @@ const Contact = () => {
               </div>
             </motion.div>
           </motion.div>
-          
+
           {/* Contact Form */}
-          <motion.div 
+          <motion.div
             className="lg:col-span-2"
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
           >
-            <motion.div 
+            <motion.div
               className="bg-white rounded-xl shadow-card p-32"
               variants={itemVariants}
             >
-              <h3 className="text-2xl font-semibold mb-32 text-neutral-800">Send Us a Message</h3>
-              
+              <h3 className="text-2xl font-semibold mb-32 text-neutral-800">
+                Send Us a Message
+              </h3>
+
               <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-24 mb-24">
                   <div>
-                    <label htmlFor="name" className="block text-neutral-700 mb-8">Full Name</label>
+                    <label
+                      htmlFor="name"
+                      className="block text-neutral-700 mb-8"
+                    >
+                      Full Name
+                    </label>
                     <input
                       type="text"
                       id="name"
@@ -174,13 +192,18 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       className="w-full px-16 py-12 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                      placeholder="John Doe"
+                      placeholder="Your full name"
                       required
                     />
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="email" className="block text-neutral-700 mb-8">Email Address</label>
+                    <label
+                      htmlFor="email"
+                      className="block text-neutral-700 mb-8"
+                    >
+                      Email Address
+                    </label>
                     <input
                       type="email"
                       id="email"
@@ -188,14 +211,19 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       className="w-full px-16 py-12 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                      placeholder="john@example.com"
+                      placeholder="yourEmail@example.com"
                       required
                     />
                   </div>
                 </div>
-                
+
                 <div className="mb-24">
-                  <label htmlFor="subject" className="block text-neutral-700 mb-8">Subject</label>
+                  <label
+                    htmlFor="subject"
+                    className="block text-neutral-700 mb-8"
+                  >
+                    Subject
+                  </label>
                   <input
                     type="text"
                     id="subject"
@@ -207,9 +235,14 @@ const Contact = () => {
                     required
                   />
                 </div>
-                
+
                 <div className="mb-32">
-                  <label htmlFor="message" className="block text-neutral-700 mb-8">Message</label>
+                  <label
+                    htmlFor="message"
+                    className="block text-neutral-700 mb-8"
+                  >
+                    Message
+                  </label>
                   <textarea
                     id="message"
                     name="message"
@@ -221,7 +254,7 @@ const Contact = () => {
                     required
                   ></textarea>
                 </div>
-                
+
                 <motion.button
                   type="submit"
                   className="btn btn-primary py-12 px-32 flex items-center justify-center w-full sm:w-auto"
@@ -231,9 +264,25 @@ const Contact = () => {
                 >
                   {formStatus.submitting ? (
                     <>
-                      <svg className="animate-spin -ml-8 mr-16 h-24 w-24 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      <svg
+                        className="animate-spin -ml-8 mr-16 h-24 w-24 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
                       </svg>
                       Sending...
                     </>
@@ -243,20 +292,20 @@ const Contact = () => {
                     </>
                   )}
                 </motion.button>
-                
+
                 {formStatus.success && (
-                  <motion.div 
+                  <motion.div
                     className="mt-16 p-12 bg-green-50 text-green-700 rounded-md"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    Message sent successfully! We'll get back to you soon.
+                    Message sent successfully! We&#39;ll get back to you soon.
                   </motion.div>
                 )}
-                
+
                 {formStatus.error && (
-                  <motion.div 
+                  <motion.div
                     className="mt-16 p-12 bg-red-50 text-red-700 rounded-md"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -271,7 +320,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

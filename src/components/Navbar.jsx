@@ -36,7 +36,7 @@ const Navbar = ({ scrolled }) => {
     { name: "Home", to: "hero" },
     { name: "Services", to: "services" },
     { name: "About", to: "about" },
-    { name: "Team", to: "team" },
+    // { name: "Team", to: "team" },
     { name: "Portfolio", to: "portfolio" },
     { name: "Contact", to: "contact" },
   ];
@@ -144,10 +144,10 @@ const Navbar = ({ scrolled }) => {
         >
           {isOpen ? (
             <FiX
-              className={scrolled || isOpen ? "text-neutral-800" : "text-white"}
+              className={scrolled || isOpen ? "text-neutral-800" : "text-black"}
             />
           ) : (
-            <FiMenu className={scrolled ? "text-neutral-800" : "text-white"} />
+            <FiMenu className={scrolled ? "text-neutral-800" : "text-black"} />
           )}
         </motion.button>
 
@@ -155,7 +155,7 @@ const Navbar = ({ scrolled }) => {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              className="fixed inset-0 bg-white z-40 px-24 py-32 lg:hidden"
+              className="fixed w-full  bg-white/100 backdrop-blur-md z-40 px-24 py-32 lg:hidden "
               initial={{ opacity: 0, x: "100%" }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: "100%" }}
