@@ -37,7 +37,7 @@ const Navbar = ({ scrolled }) => {
     { name: "Services", to: "services" },
     { name: "About", to: "about" },
     { name: "Team", to: "team" },
-    { name: "Blog", to: "blog" },
+    { name: "Portfolio", to: "portfolio" },
     { name: "Contact", to: "contact" },
   ];
 
