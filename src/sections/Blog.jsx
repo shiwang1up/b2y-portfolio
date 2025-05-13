@@ -11,37 +11,121 @@ const Portfolio = () => {
   const blogPosts = [
     {
       id: 1,
-      title: "Top 10 Cloud Security Practices for Businesses",
+      title: "RealEstate",
       excerpt:
-        "Learn the essential security practices to protect your business data in the cloud.",
+        "Successfully developed a real estate app, combining intuitive design with robust features to enhance property search and user satisfaction. Delivered a real estate app with a focus on innovation and user-centric design, ensuring a seamless experience for buyers and sellers alike.",
       category: "Cloud",
       date: "Oct 15, 2023",
       author: "David Chen",
-      image:
-        "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "../assets/portfolio/1.jpg",
     },
     {
       id: 2,
-      title: "The Future of AI in Software Development",
+      title: "E-Commerce",
       excerpt:
-        "Explore how artificial intelligence is transforming the way we build software.",
+        "Successfully launched an e-commerce platform, integrating modern design with seamless functionality to drive customer engagement and sales. Delivered an e-commerce website with a focus on innovation and user-centric design, ensuring a standout shopping experience in a competitive market",
       category: "AI",
       date: "Sep 28, 2023",
       author: "Jennifer Lee",
-      image:
-        "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "../assets/portfolio/2.jpg",
     },
     {
       id: 3,
-      title: "Digital Transformation Strategies for Small Businesses",
+      title: "MCDMF",
       excerpt:
-        "Practical approaches for small businesses to embrace digital transformation.",
+        "We are thrilled to deliver the MCDMF website, crafted with precision and tailored to meet your unique needs. Our team has ensured that the MCDMF website is not only visually stunning but also fully optimized for an exceptional user experience.",
       category: "Strategy",
       date: "Aug 10, 2023",
       author: "Alex Morgan",
-      image:
-        "https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "../assets/portfolio/3.jpg",
     },
+    {
+      id: 4,
+      title: "Idea Hub",
+      excerpt:
+        "Groundbreaking ideas and innovative solutions, where creativity meets execution. Ideahub's commitment to turning visionary concepts into reality",
+      category: "Strategy",
+      date: "Aug 10, 2023",
+      author: "Alex Morgan",
+      image: "../assets/portfolio/4.jpg",
+    },
+    // {
+    //   id: 5,
+    //   title: "MultiTenant CMS",
+    //   excerpt:
+    //     "Successfully developed a MultiTenant CMS, integrating seamless user management with customizable features to empower diverse clients and streamline content delivery. Engineered a MultiTenant CMS, Developing customized dynamic websites through an intuitive admin interface, tailored to empower multi-tenant environments with ease.",
+    //   category: "Strategy",
+    //   date: "Aug 10, 2023",
+    //   author: "Alex Morgan",
+    //   image:
+    //     "https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    // },
+    // {
+    //   id: 6,
+    //   title: "DA Application",
+    //   excerpt:
+    //     "Successfully developed a cutting-edge DA Learning Platform, offering seamless course access, video streaming, and real-time online classes, all while ensuring top-notch security with device registration restrictions. Powered by React Native, React.js, Node.js, and PostgreSQL for a smooth and scalable experience.",
+    //   category: "Strategy",
+    //   date: "Aug 10, 2023",
+    //   author: "Alex Morgan",
+    //   image:
+    //     "https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    // },
+    // {
+    //   id: 7,
+    //   title: "InteriorSoft",
+    //   excerpt:
+    //     "Developed Interior Design System, an ERP platform for interior designers to manage orders, payments, and clients. Built with React Native (Mobile), React.js (Web), Node.js (Backend), and PostgreSQL (Database).",
+    //   category: "Strategy",
+    //   date: "Aug 10, 2023",
+    //   author: "Alex Morgan",
+    //   image:
+    //     "https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    // },
+    // {
+    //   id: 8,
+    //   title: "OneClick2Serve",
+    //   excerpt:
+    //     "Developed OneClick2Serve, a platform offering professional home and office services (e.g., cleaning, plumbing, painting).",
+    //   category: "Strategy",
+    //   date: "Aug 10, 2023",
+    //   author: "Alex Morgan",
+    //   image:
+    //     "https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    // },
+    // {
+    //   id: 9,
+    //   title: "Nimboo Bill",
+    //   excerpt:
+    //     "Developed NimbooBill, a smart POS billing app for restaurants that provides real-time financial insights, revenue tracking, and expense monitoring. Available on Android, iOS, and Windows with offline support and sync functionality.",
+    //   category: "Strategy",
+    //   date: "Aug 10, 2023",
+    //   author: "Alex Morgan",
+    //   image:
+    //     "https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    // },
+    // {
+    //   id: 10,
+    //   title: "E-Commerce Mobile App",
+    //   excerpt:
+    //     "Enables users to browse, search, and purchase products online with ease. It features a user-friendly interface. Secure payment options, and personalized recommendations for a seamless shopping experience.",
+    //   category: "Strategy",
+    //   date: "Aug 10, 2023",
+    //   author: "Alex Morgan",
+    //   image:
+    //     "https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    // },
+    // {
+    //   id: 11,
+    //   title: "Mana Mandi Mobile App",
+    //   excerpt:
+    //     "Our Mobile app is designed to deliver seamless performance, solving complex problems with a user-friendly interface. With cutting-edge features and a commitment to excellence, it empowers users to achieve more with ease and efficiency.",
+    //   category: "Strategy",
+    //   date: "Aug 10, 2023",
+    //   author: "Alex Morgan",
+    //   image:
+    //     "https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    // },
   ];
 
   const categories = ["all", "Cloud", "AI", "Strategy"];
@@ -71,8 +155,8 @@ const Portfolio = () => {
       <div className="container-custom">
         <SectionHeading
           subtitle="Portfolio"
-          title="Latest Insights & News"
-          description="We're redesigning our mobile app to enhance user experience, using React Native for the frontend and Node.js for the backend. With wireframes done and API integration in progress, the project is moving full steam ahead!"
+          title="Our Recent Works"
+          description="Our team is currently working on a mobile app redesign aimed at improving user experience. We're using React Native for the frontend and Node.js for the backend. The project is progressing well, with initial wireframes completed and API integration underway."
           center={true}
         />
 
@@ -106,7 +190,7 @@ const Portfolio = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {filteredPosts.map((post, index) => (
+          {filteredPosts.map((post) => (
             <motion.article
               key={post.id}
               className="bg-white rounded-xl overflow-hidden shadow-card group"
@@ -117,14 +201,14 @@ const Portfolio = () => {
                 <img
                   src={post.image}
                   alt={post.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute top-16 left-16 bg-primary-500 text-white px-12 py-4 text-sm rounded-full">
                   {post.category}
                 </div>
               </div>
 
-              <div className="p-24">
+              <div className="p-24 ">
                 <div className="flex items-center text-sm text-neutral-500 mb-16">
                   <span className="flex items-center">
                     <FiCalendar className="mr-4" />
