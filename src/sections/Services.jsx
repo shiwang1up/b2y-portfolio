@@ -75,16 +75,19 @@ const Services = () => {
         icon: "bg-primary-100 text-primary-600",
         hover: "group-hover:bg-primary-500 group-hover:text-white",
         border: "group-hover:border-primary-500",
+        text: "primary",
       },
       secondary: {
         icon: "bg-secondary-100 text-secondary-600",
         hover: "group-hover:bg-secondary-500 group-hover:text-white",
         border: "group-hover:border-secondary-500",
+        text: "secondary",
       },
       accent: {
         icon: "bg-accent-100 text-accent-600",
         hover: "group-hover:bg-accent-500 group-hover:text-white",
         border: "group-hover:border-accent-500",
+        text: "accent",
       },
     };
 
@@ -134,9 +137,10 @@ const Services = () => {
 
                   <motion.a
                     href="#"
-                    className={`inline-flex items-center font-medium text-${service.color}-500 hover:text-${service.color}-700`}
+                    className={`inline-flex items-center font-medium text-${colorClasses.text}-500 hover:${colorClasses.text}-800`}
                     whileHover={{ x: 5 }}
                   >
+                    {console.log(service.color, "sc")}
                     Learn more
                     <svg
                       className="ml-8 w-16 h-16"

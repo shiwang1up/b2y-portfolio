@@ -1,37 +1,37 @@
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 // Components
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import ScrollToTop from './components/ScrollToTop'
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Page Sections
-import Hero from './sections/Hero'
-import Services from './sections/Services'
-import About from './sections/About'
-import Statistics from './sections/Statistics'
-import Testimonials from './sections/Testimonials'
-import Team from './sections/Team'
-import Blog from './sections/Blog'
-import Contact from './sections/Contact'
+import Hero from "./sections/Hero";
+import Services from "./sections/Services";
+import About from "./sections/About";
+import Statistics from "./sections/Statistics";
+import Testimonials from "./sections/Testimonials";
+import Team from "./sections/Team";
+import Portfolio from "./sections/Portfolio";
+import Contact from "./sections/Contact";
 
 function App() {
-  const [scrolled, setScrolled] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
+      setScrolled(window.scrollY > 50);
+    };
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="app">
       <Navbar scrolled={scrolled} />
-      
+
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -43,14 +43,14 @@ function App() {
         <Statistics />
         {/* <Testimonials /> */}
         {/* <Team /> */}
-        <Blog />
+        <Portfolio />
         <Contact />
       </motion.main>
-      
+
       <Footer />
       <ScrollToTop />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

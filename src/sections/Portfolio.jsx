@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
-import { FiArrowRight } from "react-icons/fi";
+import { FaArrowRight } from "react-icons/fa6";
 import SectionHeading from "../components/SectionHeading";
 import image1 from "../assets/portfolio/1.jpg";
 import image2 from "../assets/portfolio/2.jpg";
@@ -52,6 +52,7 @@ const Portfolio = () => {
       category: "Real Estate",
       tech: ["React", "Node.js", "Websockets", "SQL"],
       image: image1,
+      color: "blue-100",
     },
     {
       id: 2,
@@ -61,6 +62,7 @@ const Portfolio = () => {
       category: "E-Commerce",
       tech: ["React", "Node.js", "Websockets", "SQL"],
       image: image2,
+      color: "yellow-100",
     },
     {
       id: 3,
@@ -70,6 +72,7 @@ const Portfolio = () => {
       category: "Web Platform",
       tech: ["React", "Node.js", "Websockets", "SQL"],
       image: image3,
+      color: "amber-100",
     },
     {
       id: 4,
@@ -79,6 +82,7 @@ const Portfolio = () => {
       category: "Portfolio",
       tech: ["React", "Java", "MongoDB", "AWS"],
       image: image4,
+      color: "cyan-100",
     },
     {
       id: 5,
@@ -88,6 +92,7 @@ const Portfolio = () => {
       category: "ERP Platform",
       tech: ["React", ".Net", "Websockets", "SQL"],
       image: image5,
+      color: "green-100",
     },
     {
       id: 6,
@@ -97,6 +102,7 @@ const Portfolio = () => {
       category: "Learning Platform",
       tech: ["React", "Node.js", "Websockets", "PostgreSQL"],
       image: image6,
+      color: "red-100",
     },
     {
       id: 7,
@@ -106,6 +112,7 @@ const Portfolio = () => {
       category: "ERP Platform",
       tech: ["React", "Node.js", "SQL", "React Native"],
       image: image7,
+      color: "purple-100",
     },
     {
       id: 8,
@@ -115,6 +122,7 @@ const Portfolio = () => {
       category: "Service Platform",
       tech: ["Angular", ".NET Core", "SQL Server", "Docker"],
       image: image8,
+      color: "blue-100",
     },
     {
       id: 9,
@@ -124,6 +132,7 @@ const Portfolio = () => {
       category: "Billing",
       tech: ["Flutter", "Angular", ".NET Core", "SQL Server", "Docker"],
       image: image9,
+      color: "lime-100",
     },
     {
       id: 10,
@@ -133,6 +142,7 @@ const Portfolio = () => {
       category: "E-Commerce",
       tech: ["Android", "iOS", "Node.js", "React Native"],
       image: image10,
+      color: "teal-100",
     },
     {
       id: 11,
@@ -142,6 +152,7 @@ const Portfolio = () => {
       category: "General Mobile Apps",
       tech: ["Android", "iOS", "Node.js", "React Native"],
       image: image11,
+      color: "indigo-100",
     },
   ];
 
@@ -218,47 +229,70 @@ const Portfolio = () => {
           ))}
         </motion.div>
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-32"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
-          {displayedPosts.map((post) => (
-            <motion.article
-              key={post.id}
-              className="bg-white rounded-xl overflow-hidden shadow-card group"
-              variants={itemVariants}
-              whileHover={{ y: -10 }}
-            >
-              <div className="relative overflow-hidden aspect-video">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full aspect-video object-contain transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute top-16 left-16 bg-primary-500/70 backdrop-blur-md py-2 shadow-lg text-white px-3  text-sm rounded-full">
-                  {post.category}
-                </div>
-              </div>
+        <div className="relative">
+          {" "}
+          {/* Wrap everything inside a relative parent */}
+          {/* Mesh-like animated background */}
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-32"
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
+            {displayedPosts.map((post) => (
+              <motion.article
+                key={post.id}
+                className={` bg-${post.color} rounded-xl overflow-hidden shadow-card group`}
+                variants={itemVariants}
+                whileHover={{ y: -10 }}
+              >
+                <div className="px-24 pt-24 rounded-2xl relative  ">
+                  <div className="relative mb-5">
+                    <h3 className="text-xl font-semibold mb-16 text-neutral-800  transition-colors duration-300">
+                      {post.title}
+                    </h3>
 
-              <div className="p-24 ">
-                {/* <div className="flex items-center text-sm text-neutral-500 mb-16">
-                  <span className="flex items-center">
-                    <FiCalendar className="mr-4" />
-                    {post.date}
-                  </span>
-                  <span className="mx-8">•</span>
-                  <span className="flex items-center">
-                    <FiUser className="mr-4" />
-                    {post.author}
-                  </span>
-                </div> */}
-                <div className="flex flex-wrap gap-8 mb-24">
+                    <p className="text-neutral-600 ">{post.excerpt}</p>
+
+                    <div className="absolute right-0 top-[-10px]">
+                      <motion.a
+                        href={`#portfolio/${post.id}`}
+                        className="inline-flex items-center justify-center font-medium bg-white duration-300 p-3 rounded-full border-[1px] relative w-12 h-12"
+                        whileHover="hover"
+                        initial="initial"
+                      >
+                        {/* First arrow (moves out top-right) */}
+                        <motion.div
+                          variants={{
+                            initial: { opacity: 1, x: 0, y: 0 },
+                            hover: { opacity: 0, x: 20, y: -20 },
+                          }}
+                          transition={{ duration: 0.3 }}
+                          className="absolute"
+                        >
+                          <FaArrowRight className="transform -rotate-45" />
+                        </motion.div>
+
+                        {/* Second arrow (comes in bottom-left) */}
+                        <motion.div
+                          variants={{
+                            initial: { opacity: 0, x: -20, y: 20 },
+                            hover: { opacity: 1, x: 0, y: 0 },
+                          }}
+                          transition={{ duration: 0.3 }}
+                          className="absolute"
+                        >
+                          <FaArrowRight className="transform -rotate-45" />
+                        </motion.div>
+                      </motion.a>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex justify-end flex-wrap gap-8">
                   {post.tech.map((tech) => (
                     <span
                       key={tech}
-                      className={`px-12 py-4 rounded-full text-sm ${
+                      className={`px-9 py-2 rounded-full text-sm ${
                         techColors[tech] || "bg-neutral-100 text-neutral-600"
                       }`}
                     >
@@ -267,24 +301,32 @@ const Portfolio = () => {
                   ))}
                 </div>
 
-                <h3 className="text-xl font-semibold mb-16 text-neutral-800 group-hover:text-primary-500 transition-colors duration-300">
-                  {post.title}
-                </h3>
+                <div className="relative overflow-hidden p-24">
+                  <div className="relative overflow-hidden rounded-2xl w-full h-[250px] flex items-center justify-center bg-white group">
+                    {/* Background Mesh with gradient overlay */}
+                    <img
+                      src="https://framerusercontent.com/images/6bZ0A2PCtBZD7XutwDhJ6XAIMM.svg"
+                      alt=""
+                      className="w-full h-full object-cover rounded-inherit absolute z-1"
+                      loading="lazy"
+                      decoding="async"
+                    />
 
-                <p className="text-neutral-600 mb-24">{post.excerpt}</p>
+                    {/* White to transparent gradient overlay */}
+                    <div className="absolute z-10 inset-0 bg-gradient-to-b to-white/90 from-  transparent pointer-events-none rounded-inherit" />
 
-                <motion.a
-                  href={`#portfolio/${post.id}`}
-                  className="inline-flex items-center font-medium text-primary-500 hover:text-primary-700 transition-colors duration-300"
-                  whileHover={{ x: 5 }}
-                >
-                  Read more
-                  <FiArrowRight className="ml-8" />
-                </motion.a>
-              </div>
-            </motion.article>
-          ))}
-        </motion.div>
+                    {/* Foreground image */}
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 absolute z-20"
+                    />
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </motion.div>
+        </div>
 
         {filteredPosts.length > displayedPosts.length && (
           <div className="text-center mt-48">
@@ -293,7 +335,7 @@ const Portfolio = () => {
               className="btn btn-outline py-12 px-32"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
+              transition={{ duration: 1, delay: 0.5 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
