@@ -55,33 +55,31 @@ const Navbar = ({ scrolled }) => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <div className="container-custom-nav flex items-center justify-between">
+      <div className="container-custom-nav flex items-center justify-between relative">
         {/* Logo */}
-        <motion.div
-          className="z-50"
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.2 }}
-        >
-          <a href="/" className="flex items-center  ">
-            <div className="flex  items-end">
-              <img src={Logo} alt="logo" className="w-[70px] h-[70px]" />
-              <span className=" ">you believe we achieve</span>
+        <a href="/" className="flex items-center   ">
+          <div className="flex  items-end ">
+            <img src={Logo} alt="logo" className="w-[70px] h-[70px]" />
+            <div className="absolute bottom-0 left-[76px]">
+              <p className="font-lucidacalligraphy text-[#ff6247] ">
+                you believe we achieve
+              </p>
             </div>
+          </div>
 
-            {/* <div
+          {/* <div
               className={`w-40 h-40 rounded-md flex items-center justify-center bg-primary-500 mr-8`}
-            >
+              >
               <span className="text-white font-bold text-xl">TS</span>
-            </div>
-            <span
+              </div>
+              <span
               className={`font-bold text-xl ${
                 scrolled || isOpen ? "text-neutral-800" : "text-black"
-              }`}
-            >
-              ThoughtSol
-            </span> */}
-          </a>
-        </motion.div>
+                }`}
+                >
+                ThoughtSol
+                </span> */}
+        </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-32">
