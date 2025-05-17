@@ -59,7 +59,7 @@ const About = () => {
 
           {/* Content Column */}
           <motion.div
-            className="lg:w-1/2 border-2 justify-around flex flex-col items-start p-32 bg-white rounded-xl shadow-lg"
+            className="lg:w-1/2  justify-around flex flex-col items-start p-32 bg-white "
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}

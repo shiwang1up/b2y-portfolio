@@ -126,52 +126,60 @@ const Navbar = ({ scrolled }) => {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              className="fixed w-full  bg-white/100 backdrop-blur-md z-40 px-24 py-32 lg:hidden "
-              initial={{ opacity: 0, x: "100%" }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: "100%" }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="fixed inset-0 bg-black/30 backdrop-blur-sm lg:hidden "
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
             >
-              <div className="flex flex-col justify-center h-full space-y-24">
-                {navLinks.map((link, index) => (
-                  <motion.div
-                    key={link.to}
+              <motion.div
+                className="absolute right-0 top-0 h-screen w-full bg-white/100 backdrop-blur-lg px-6 py-8 shadow-xl "
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              >
+                <div className="flex flex-col h-full">
+                  {/* Menu Items */}
+                  <div className="flex flex-col gap-8 mt-11 pr-3">
+                    {navLinks.map((link, index) => (
+                      <motion.div
+                        key={link.to}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 * index }}
+                      >
+                        <ScrollLink
+                          to={link.to}
+                          onClick={closeMenu}
+                          className="flex items-center px-4 py-1 text-lg font-medium text-gray-800 hover:bg-gray-50 rounded-xl transition-colors"
+                        >
+                          {link.name}
+                        </ScrollLink>
+                        <hr />
+                        {index !== navLinks.length - 1 && (
+                          <div className="mx-4 border-b border-gray-100  " />
+                        )}
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  {/* CTA Button */}
+                  {/* <motion.div
+                    className="mt-auto pt-8"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 * index }}
+                    transition={{ delay: 0.4 }}
                   >
                     <ScrollLink
-                      to={link.to}
-                      spy={true}
-                      smooth={true}
-                      offset={-100}
-                      duration={500}
-                      className="text-neutral-800 text-2xl font-medium"
+                      to="contact"
                       onClick={closeMenu}
+                      className="block w-full text-center bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium py-3 px-6 rounded-xl hover:shadow-lg transition-all"
                     >
-                      {link.name}
+                      Get Started
                     </ScrollLink>
-                  </motion.div>
-                ))}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7 }}
-                  className="pt-24"
-                >
-                  <ScrollLink
-                    to="contact"
-                    spy={true}
-                    smooth={true}
-                    offset={-100}
-                    duration={500}
-                    className="btn btn-primary py-12 px-32 text-lg"
-                    onClick={closeMenu}
-                  >
-                    Get Started
-                  </ScrollLink>
-                </motion.div>
-              </div>
+                  </motion.div> */}
+                </div>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>

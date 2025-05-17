@@ -1,8 +1,9 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { FiCode, FiCloud, FiTrendingUp, FiSmartphone } from "react-icons/fi";
+import { FiCode, FiCloud, FiSmartphone } from "react-icons/fi";
 import { BiSupport } from "react-icons/bi";
-import { FaConnectdevelop, FaCogs } from "react-icons/fa";
+import { FaConnectdevelop, FaCogs, FaRobot } from "react-icons/fa";
+import { RiRobot2Line } from "react-icons/ri";
 import SectionHeading from "../components/SectionHeading";
 
 const Services = () => {
@@ -11,10 +12,10 @@ const Services = () => {
 
   const services = [
     {
-      icon: <FiCode size={28} />,
-      title: "Web Development",
+      icon: <RiRobot2Line size={28} />,
+      title: "AI Solutions",
       description:
-        "Our expert web team builds dynamic, user-friendly websites—from simple pages to advanced e-commerce platforms—tailored to your business needs.",
+        "Unlock the power of AI with smart automation, predictive analytics, and machine learning solutions that optimize performance and drive innovation across your business.",
       color: "primary",
     },
     {
@@ -32,10 +33,10 @@ const Services = () => {
       color: "accent",
     },
     {
-      icon: <FiCloud size={28} />,
-      title: "Cloud Solutions",
+      icon: <FiCode size={28} />,
+      title: "Web Development",
       description:
-        "Harness the cloud with our end-to-end solutions—from migration to optimization—boosting your agility, scalability, and cost-efficiency.",
+        "Our expert web team builds dynamic, user-friendly websites—from simple pages to advanced e-commerce platforms—tailored to your business needs.",
       color: "primary",
     },
     {
@@ -51,6 +52,14 @@ const Services = () => {
       description:
         "Ensure seamless operations with our IT support—fast issue resolution, proactive maintenance, and reliable system monitoring to keep your business running smoothly.",
       color: "accent",
+    },
+
+    {
+      icon: <FiCloud size={28} />,
+      title: "Cloud Solutions",
+      description:
+        "Harness the cloud with our end-to-end solutions—from migration to optimization—boosting your agility, scalability, and cost-efficiency.",
+      color: "primary",
     },
   ];
 
@@ -137,10 +146,9 @@ const Services = () => {
 
                   <motion.a
                     href="#"
-                    className={`inline-flex items-center font-medium text-${colorClasses.text}-500 hover:${colorClasses.text}-800`}
+                    className={`inline-flex items-center font-medium text-${colorClasses.text}-600 hover:${colorClasses.text}-900`}
                     whileHover={{ x: 5 }}
                   >
-                    {console.log(service.color, "sc")}
                     Learn more
                     <svg
                       className="ml-8 w-16 h-16"
