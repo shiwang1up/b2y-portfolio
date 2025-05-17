@@ -66,19 +66,6 @@ const Navbar = ({ scrolled }) => {
               </p>
             </div>
           </div>
-
-          {/* <div
-              className={`w-40 h-40 rounded-md flex items-center justify-center bg-primary-500 mr-8`}
-              >
-              <span className="text-white font-bold text-xl">TS</span>
-              </div>
-              <span
-              className={`font-bold text-xl ${
-                scrolled || isOpen ? "text-neutral-800" : "text-black"
-                }`}
-                >
-                ThoughtSol
-                </span> */}
         </a>
 
         {/* Desktop Navigation */}
@@ -117,20 +104,6 @@ const Navbar = ({ scrolled }) => {
           >
             Get Started
           </ScrollLink>
-          {/* <ScrollLink
-            to="contact"
-            spy={true}
-            smooth={true}
-            offset={-100}
-            duration={500}
-            className={`btn ${
-              scrolled
-                ? "btn-primary"
-                : "border-2 border-primary-500 hover:border-white text-primary-500 hover:bg-white hover:text-primary-500"
-            } py-8 px-24`}
-          >
-            Get Started
-          </ScrollLink> */}
         </motion.div>
 
         {/* Mobile Menu Button */}

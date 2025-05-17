@@ -82,7 +82,7 @@ const Portfolio = () => {
       category: "Portfolio",
       tech: ["React", "Java", "MongoDB", "AWS"],
       image: image4,
-      color: "cyan-100",
+      color: "purple-100",
     },
     {
       id: 5,
@@ -122,7 +122,7 @@ const Portfolio = () => {
       category: "Service Platform",
       tech: ["Angular", ".NET Core", "SQL Server", "Docker"],
       image: image8,
-      color: "blue-100",
+      color: "amber-100",
     },
     {
       id: 9,
@@ -234,7 +234,7 @@ const Portfolio = () => {
           {/* Wrap everything inside a relative parent */}
           {/* Mesh-like animated background */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-32"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 "
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -257,7 +257,7 @@ const Portfolio = () => {
                     <div className="absolute right-0 top-[-10px]">
                       <motion.a
                         href={`#portfolio/${post.id}`}
-                        className="inline-flex items-center justify-center font-medium bg-white duration-300 p-3 rounded-full border-[1px] relative w-12 h-12"
+                        className={`inline-flex items-center justify-center font-medium bg-white hover:bg-white duration-300 p-3 rounded-full border-[1px] relative w-12 h-12`}
                         whileHover="hover"
                         initial="initial"
                       >
@@ -288,7 +288,7 @@ const Portfolio = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex justify-end flex-wrap gap-8">
+                <div className="flex justify-end flex-wrap gap-8 px-[24px]">
                   {post.tech.map((tech) => (
                     <span
                       key={tech}

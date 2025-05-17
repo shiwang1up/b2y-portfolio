@@ -13,14 +13,19 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: #262626;
   background-color: #ffffff;
   overflow-x: hidden;
 }
 
 /* Typography styles */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1.2;
   margin: 0;
 }
@@ -37,7 +42,6 @@ p {
 .btn-primary {
   @apply bg-primary-500 text-white hover:bg-primary-600;
 }
-
 
 .btn-outline {
   @apply border-2 border-primary-500 text-primary-500 hover:bg-primary-50;
@@ -72,9 +76,13 @@ p {
 }
 
 /* Focus states */
-a:focus, button:focus {
-  @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+a:focus,
+button:focus {
+  @apply outline-none ;
 }
+/* a:focus, button:focus {
+  @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+} */
 
 /* Animation classes */
 .animate-delay-100 {
@@ -108,7 +116,7 @@ a:focus, button:focus {
 }
 
 .nav-link::after {
-  content: '';
+  content: "";
   @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300;
 }
 

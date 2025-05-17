@@ -47,40 +47,19 @@ const About = () => {
               <img
                 src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                 alt="Our team working together"
-                className="rounded-xl shadow-lg relative z-10"
+                className="rounded-xl shadow-lg relative z-10  "
               />
 
               {/* Background decorative element */}
               <div className="absolute -bottom-24 -left-24 w-2/3 h-2/3 bg-primary-500/20 rounded-xl -z-0"></div>
 
               {/* Years of experience badge */}
-              {/* <motion.div
-                className="absolute -top-24 -right-24 lg:-right-32 bg-white shadow-xl rounded-lg p-16 flex flex-col items-center justify-center"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={
-                  isInView
-                    ? { opacity: 1, scale: 1 }
-                    : { opacity: 0, scale: 0.8 }
-                }
-                transition={{ duration: 0.6, delay: 0.3 }}
-                whileHover={{
-                  y: -5,
-                  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-                }}
-              >
-                <span className="text-5xl font-bold text-primary-500">10+</span>
-                <span className="text-neutral-600 text-center">
-                  Years of
-                  <br />
-                  Experience
-                </span>
-              </motion.div> */}
             </div>
           </motion.div>
 
           {/* Content Column */}
           <motion.div
-            className="lg:w-1/2"
+            className="lg:w-1/2 border-2 justify-around flex flex-col items-start p-32 bg-white rounded-xl shadow-lg"
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -88,22 +67,21 @@ const About = () => {
             <SectionHeading
               subtitle="About Us"
               title="We Deliver Excellence in IT Solutions"
-              description="At B2Y, we're more than tech experts—we're innovators, problem-solvers, and drivers of digital transformation. Born from a bold vision to reshape the IT world, we set out to empower businesses with smart, future-ready solutions."
+              mb="mb-8"
             />
-            {/* <SectionHeading
-              subtitle="About Us"
-              title="We Deliver Excellence in IT Solutions"
-              description="ThoughtSol is a leading IT solutions provider dedicated to helping businesses leverage technology to achieve their goals. With over a decade of experience, we've built a reputation for delivering innovative solutions that drive real results."
-            /> */}
 
             <motion.p
               className="text-neutral-600 mb-32"
               variants={itemVariants}
             >
-              Our team of experts specializes in developing cutting-edge
-              software, implementing robust cloud infrastructure, and providing
-              strategic IT consulting services that empower businesses to thrive
-              in today&#39;s competitive landscape.
+              At B2Y, we&#39;re more than tech experts—we&#39;re innovators,
+              problem-solvers, and drivers of digital transformation. Born from
+              a bold vision to reshape the IT world, we set out to empower
+              businesses with smart, future-ready solutions. Our team of experts
+              specializes in developing cutting-edge software, implementing
+              robust cloud infrastructure, and providing strategic IT consulting
+              services that empower businesses to thrive in today&#39;s
+              competitive landscape.
             </motion.p>
 
             <motion.div

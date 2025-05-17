@@ -145,18 +145,24 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-24">Contact Us</h3>
             <ul className="space-y-8">
               <li className="flex items-start">
-                <FiMapPin className="mt-4 mr-12 text-primary-400" size={28} />
-                <p className="text-neutral-300">
-                  301/302, 3rd Floor, <br />
-                  Saket Callipolis,
-                  <br /> Sarjapur - Marathahalli Road, Doddakannelli,
-                  <br /> Bengaluru, Karnataka - 560035
-                </p>
+                <div className="w-24 mr-12">
+                  <FiMapPin className="mt-4  text-primary-400" size={18} />
+                </div>
+                <div>
+                  <p className="text-neutral-300">
+                    301/302, 3rd Floor, <br />
+                    Saket Callipolis,
+                    <br /> Sarjapur - Marathahalli Road, Doddakannelli,
+                    <br /> Bengaluru, Karnataka - 560035
+                  </p>
+                </div>
               </li>
               <li className="flex items-center">
-                <FiPhone className="mr-12 text-primary-400" size={18} />
+                <div className="w-24 mr-12">
+                  <FiPhone className=" text-primary-400" size={18} />
+                </div>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+917989739209"
                   className="text-neutral-300 hover:text-primary-400 transition-colors duration-300"
                 >
                   (+91) 7989739209

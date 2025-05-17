@@ -15,6 +15,7 @@ import Testimonials from "./sections/Testimonials";
 import Team from "./sections/Team";
 import Portfolio from "./sections/Portfolio";
 import Contact from "./sections/Contact";
+import Clients from "./sections/Clients";
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -39,6 +40,7 @@ function App() {
       >
         <Hero />
         <Services />
+        <Clients />
         <About />
         <Statistics />
         {/* <Testimonials /> */}
