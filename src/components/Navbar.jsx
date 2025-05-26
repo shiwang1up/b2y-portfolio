@@ -3,9 +3,29 @@ import { Link as ScrollLink } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
 import Logo from "../assets/logo/b2yLogo.png";
+import { Link } from "lucide-react";
 
 const Navbar = ({ scrolled }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [hoveredService, setHoveredService] = useState(null);
+
+  const servicesSubMenu = {
+    "ai-solutions": [
+      { name: "Machine Learning", to: "/ai/ml" },
+      { name: "Computer Vision", to: "/ai/cv" },
+      { name: "Natural Language Processing", to: "/ai/nlp" },
+    ],
+    development: [
+      { name: "Web Development", to: "/dev/web" },
+      { name: "Mobile Apps", to: "/dev/mobile" },
+      { name: "Custom Software", to: "/dev/custom" },
+    ],
+    consulting: [
+      { name: "IT Strategy", to: "/consulting/strategy" },
+      { name: "Cloud Solutions", to: "/consulting/cloud" },
+      { name: "Digital Transformation", to: "/consulting/digital" },
+    ],
+  };
 
   // Close mobile menu when screen resizes to desktop
   useEffect(() => {
@@ -33,12 +53,20 @@ const Navbar = ({ scrolled }) => {
   }, [isOpen]);
 
   const navLinks = [
-    { name: "Home", to: "hero" },
-    { name: "Services", to: "services" },
-    { name: "About", to: "about" },
-    // { name: "Team", to: "team" },
-    { name: "Portfolio", to: "portfolio" },
-    { name: "Contact", to: "contact" },
+    { name: "Home", to: "hero", type: "scroll" },
+    {
+      name: "Services",
+      to: "services",
+      type: "dropdown",
+      subCategories: [
+        { name: "AI Solutions", id: "ai-solutions" },
+        { name: "Development", id: "development" },
+        { name: "Consulting", id: "consulting" },
+      ],
+    },
+    { name: "About", to: "about", type: "scroll" },
+    { name: "Portfolio", to: "portfolio", type: "scroll" },
+    { name: "Contact", to: "contact", type: "scroll" },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -67,7 +95,6 @@ const Navbar = ({ scrolled }) => {
             </div>
           </div>
         </a>
-
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-32">
           {navLinks.map((link) => (
@@ -87,7 +114,86 @@ const Navbar = ({ scrolled }) => {
             </ScrollLink>
           ))}
         </nav>
+        {/* <nav className="hidden lg:flex items-center space-x-32">
+          {navLinks.map((link) => (
+            <div
+              key={link.to}
+              className="relative"
+              onMouseEnter={() =>
+                link.type === "dropdown" && setHoveredService(link.to)
+              }
+              onMouseLeave={() => setHoveredService(null)}
+            >
+              {link.type === "scroll" ? (
+                <ScrollLink
+                  to={link.to}
+                  spy={true}
+                  smooth={true}
+                  offset={-100}
+                  duration={500}
+                  className={`nav-link font-medium ${
+                    scrolled ? "text-neutral-700" : "text-neutral-700"
+                  }`}
+                  activeClass="active"
+                >
+                  {link.name}
+                </ScrollLink>
+              ) : (
+                <span
+                  className={`cursor-pointer font-medium ${
+                    scrolled ? "text-neutral-700" : "text-black"
+                  }`}
+                >
+                  {link.name}
+                </span>
+              )}
 
+              <AnimatePresence>
+                {hoveredService === link.to && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0  bg-white shadow-lg w-[250px] rounded-lg p-4 mt-1 group"
+                    onMouseEnter={() => setHoveredService(link.to)}
+                    onMouseLeave={() => setHoveredService(null)}
+                  >
+                    <div className="grid grid-cols-2 gap-4">
+                      {link.subCategories?.map((category) => (
+                        <div key={category.id}>
+                          <h3 className="font-medium text-slate-900 mb-2">
+                            {category.name}
+                          </h3>
+                          <ul className="space-y-1">
+                            {servicesSubMenu[category.id]?.map((item) => (
+                              <li key={item.to}>
+                                <Link
+                                  to={item.to}
+                                  className="text-sm text-slate-600 hover:text-indigo-600"
+                                >
+                                  {item.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-4 border-t pt-4">
+                      <Link
+                        to="/services"
+                        className="text-indigo-600 hover:text-indigo-800 text-sm font-medium"
+                      >
+                        View All Services →
+                      </Link>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </nav> */}
         {/* CTA Button */}
         <motion.div
           className="hidden lg:block"
@@ -105,7 +211,6 @@ const Navbar = ({ scrolled }) => {
             Get Started
           </ScrollLink>
         </motion.div>
-
         {/* Mobile Menu Button */}
         <motion.button
           className="lg:hidden z-50 text-2xl"
@@ -121,7 +226,6 @@ const Navbar = ({ scrolled }) => {
             <FiMenu className={scrolled ? "text-neutral-800" : "text-black"} />
           )}
         </motion.button>
-
         {/* Mobile Menu */}
         <AnimatePresence>
           {isOpen && (

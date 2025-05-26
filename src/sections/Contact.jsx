@@ -1,6 +1,14 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { FiMapPin, FiPhone, FiMail, FiSend } from "react-icons/fi";
+import {
+  FiMapPin,
+  FiPhone,
+  FiMail,
+  FiSend,
+  FiLinkedin,
+  FiTwitter,
+  FiFacebook,
+} from "react-icons/fi";
 import SectionHeading from "../components/SectionHeading";
 
 const Contact = () => {
@@ -145,7 +153,11 @@ const Contact = () => {
               <div className="mt-48">
                 <h4 className="font-medium mb-16">Follow Us</h4>
                 <div className="flex space-x-12">
-                  {["LinkedIn", "Twitter", "Facebook"].map((social, index) => (
+                  {[
+                    { icon: <FiLinkedin />, name: "LinkedIn" },
+                    { icon: <FiTwitter />, name: "Twitter" },
+                    { icon: <FiFacebook />, name: "Facebook" },
+                  ].map((social, index) => (
                     <motion.a
                       key={index}
                       href="#"
@@ -153,7 +165,7 @@ const Contact = () => {
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
-                      {social[0]}
+                      {social.icon}
                     </motion.a>
                   ))}
                 </div>

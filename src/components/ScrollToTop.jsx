@@ -1,35 +1,35 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { FiArrowUp } from 'react-icons/fi'
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiArrowUp } from "react-icons/fi";
 
 const ScrollToTop = () => {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.pageYOffset > 500) {
-        setIsVisible(true)
+        setIsVisible(true);
       } else {
-        setIsVisible(false)
+        setIsVisible(false);
       }
-    }
+    };
 
-    window.addEventListener('scroll', toggleVisibility)
-    return () => window.removeEventListener('scroll', toggleVisibility)
-  }, [])
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
-    })
-  }
+      behavior: "smooth",
+    });
+  };
 
   return (
     <AnimatePresence>
       {isVisible && (
         <motion.button
-          className="fixed bottom-24 right-24 p-16 bg-primary-500 text-white rounded-full shadow-lg z-40"
+          className="fixed bottom-24 right-24 p-16 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium rounded-full hover:shadow-lg transition-all shadow-lg z-40"
           onClick={scrollToTop}
           aria-label="Scroll to top"
           initial={{ opacity: 0, scale: 0.5 }}
@@ -42,7 +42,7 @@ const ScrollToTop = () => {
         </motion.button>
       )}
     </AnimatePresence>
-  )
-}
+  );
+};
 
-export default ScrollToTop
+export default ScrollToTop;

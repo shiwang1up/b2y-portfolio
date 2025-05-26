@@ -40,8 +40,11 @@ p {
 }
 
 .btn-primary {
-  @apply bg-primary-500 text-white hover:bg-primary-600;
+  @apply bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium py-3 px-7 rounded-full hover:shadow-lg transition-all;
 }
+/* .btn-primary {
+  @apply bg-primary-500 text-white hover:bg-primary-600;
+} */
 
 .btn-outline {
   @apply border-2 border-primary-500 text-primary-500 hover:bg-primary-50;

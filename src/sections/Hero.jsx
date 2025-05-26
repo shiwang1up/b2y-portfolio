@@ -203,9 +203,9 @@ const Hero = () => {
               }}
             >
               <img
-                src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="https://images.unsplash.com/photo-1674027444485-cec3da58eef4?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Digital Technology"
-                className="rounded-xl shadow-2xl"
+                className="rounded-xl shadow-2xl "
               />
 
               {/* Floating stats card */}
