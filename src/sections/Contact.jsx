@@ -92,6 +92,7 @@ const Contact = () => {
       className="section bg-white relative overflow-hidden"
       ref={ref}
     >
+      <div className=" absolute inset-0 bg-[url('../assets/UI/World.svg')] bg-cover bg-center opacity-100"></div>
       {/* Background decoration */}
       <div className="absolute -left-[10%] -bottom-[10%] w-[40%] h-[40%] rounded-full bg-primary-50 opacity-50"></div>
       <div className="absolute -right-[5%] -top-[15%] w-[30%] h-[30%] rounded-full bg-secondary-50 opacity-50"></div>
@@ -102,6 +103,7 @@ const Contact = () => {
           title="Get in Touch with Our Team"
           description="Have a question or need assistance? Reach out to us, and our team will be glad to help you."
           center={true}
+          light={true}
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-32 lg:gap-48">

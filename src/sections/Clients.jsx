@@ -31,7 +31,7 @@ const Clients = () => {
       ref={carouselRef}
       className=" py-11 text-black overflow-hidden relative  bg-gradient-to-br from-primary-600  to-primary-800 w-full"
     >
-      <div className=" absolute inset-0 bg-[url('../assets/UI/Curve_Line.svg')] bg-cover bg-center opacity-20"></div>
+      <div className=" absolute inset-0 bg-[url('../assets/UI/Curve_Line.svg')] bg-cover bg-center opacity-30"></div>
       <div className="px-16 md:px-24 lg:px-40">
         <SectionHeading
           subtitle="Our Clients"

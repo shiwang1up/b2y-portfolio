@@ -5,8 +5,9 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center pt-80 pb-64 bg-gradient-to-br from-primary-600 to-primary-800 overflow-hidden color-white"
+      className="relative min-h-screen   flex items-center pt-80 pb-64 bg-gradient-to-br  overflow-hidden color-white"
     >
+      <div className=" absolute inset-0 bg-[url('../assets/UI/Polygon.svg')] bg-cover bg-center opacity-100"></div>
       {/* Background animated shapes */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
