@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import Scrollbar from "smooth-scrollbar";
 
 // Components
 import Navbar from "./components/Navbar";
@@ -11,8 +12,6 @@ import Hero from "./sections/Hero";
 import Services from "./sections/Services";
 import About from "./sections/About";
 import Statistics from "./sections/Statistics";
-import Testimonials from "./sections/Testimonials";
-import Team from "./sections/Team";
 import Portfolio from "./sections/Portfolio";
 import Contact from "./sections/Contact";
 import Clients from "./sections/Clients";

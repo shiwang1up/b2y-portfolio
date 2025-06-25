@@ -123,10 +123,10 @@ const Footer = () => {
               {[
                 "About Us",
                 "Case Studies",
-                "Blog",
+                // "Blog",
                 "Careers",
-                "FAQ",
-                "Privacy Policy",
+                // "FAQ",
+                // "Privacy Policy",
               ].map((link, index) => (
                 <li key={index}>
                   <a
