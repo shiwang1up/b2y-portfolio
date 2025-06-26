@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
+import { Link as RouterLink } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX, FiChevronDown, FiExternalLink } from "react-icons/fi";
 import Logo from "../assets/logo/b2yLogo.png";
-import { Link } from "lucide-react";
 
 const Navbar = ({ scrolled }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [hoveredService, setHoveredService] = useState(null);
+  const [hoveredItem, setHoveredItem] = useState(null);
+  const [mobileOpenSubmenu, setMobileOpenSubmenu] = useState(null);
 
   const servicesSubMenu = {
     "ai-solutions": [
@@ -66,11 +67,46 @@ const Navbar = ({ scrolled }) => {
     },
     { name: "About", to: "about", type: "scroll" },
     { name: "Portfolio", to: "portfolio", type: "scroll" },
+    { name: "Blog", to: "/blog", type: "link" },
     { name: "Contact", to: "contact", type: "scroll" },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);
-  const closeMenu = () => setIsOpen(false);
+  const closeMenu = () => {
+    setIsOpen(false);
+    setMobileOpenSubmenu(null);
+  };
+
+  const toggleMobileSubmenu = (item) => {
+    setMobileOpenSubmenu(mobileOpenSubmenu === item ? null : item);
+  };
+
+  const renderDesktopSubmenu = (link) => {
+    return (
+      <div className="grid grid-cols-3 gap-6 p-6 w-[700px]">
+        {link.subCategories?.map((category) => (
+          <div key={category.id} className="space-y-3">
+            <h3 className="font-semibold text-lg text-slate-900 mb-2 pb-2 border-b border-slate-100">
+              {category.name}
+            </h3>
+            <ul className="space-y-2">
+              {servicesSubMenu[category.id]?.map((item) => (
+                <li key={item.to}>
+                  <RouterLink
+                    to={item.to}
+                    className="text-sm text-slate-600 hover:text-indigo-600 flex items-center transition-colors"
+                    onClick={closeMenu}
+                  >
+                    {item.name}
+                  </RouterLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    );
+  };
 
   return (
     <motion.header
@@ -85,7 +121,7 @@ const Navbar = ({ scrolled }) => {
     >
       <div className="container-custom-nav flex items-center justify-between relative">
         {/* Logo */}
-        <a href="/" className="flex items-center   ">
+        <RouterLink to="/" className="flex items-center">
           <div className="flex  items-end ">
             <img src={Logo} alt="logo" className="w-[70px] h-[70px]" />
             <div className="absolute bottom-0 left-[76px]">
@@ -94,35 +130,18 @@ const Navbar = ({ scrolled }) => {
               </p>
             </div>
           </div>
-        </a>
+        </RouterLink>
+
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-32">
-          {navLinks.map((link) => (
-            <ScrollLink
-              key={link.to}
-              to={link.to}
-              spy={true}
-              smooth={true}
-              offset={-100}
-              duration={500}
-              className={`nav-link font-medium ${
-                scrolled ? "text-neutral-700" : "text-white"
-              }`}
-              activeClass="active"
-            >
-              {link.name}
-            </ScrollLink>
-          ))}
-        </nav>
-        {/* <nav className="hidden lg:flex items-center space-x-32">
           {navLinks.map((link) => (
             <div
               key={link.to}
               className="relative"
               onMouseEnter={() =>
-                link.type === "dropdown" && setHoveredService(link.to)
+                link.type === "dropdown" && setHoveredItem(link.to)
               }
-              onMouseLeave={() => setHoveredService(null)}
+              onMouseLeave={() => setHoveredItem(null)}
             >
               {link.type === "scroll" ? (
                 <ScrollLink
@@ -131,139 +150,188 @@ const Navbar = ({ scrolled }) => {
                   smooth={true}
                   offset={-100}
                   duration={500}
-                  className={`nav-link font-medium ${
-                    scrolled ? "text-neutral-700" : "text-neutral-700"
-                  }`}
+                  className={`nav-link font-medium cursor-pointer ${
+                    scrolled ? "text-neutral-800" : "text-neutral-800"
+                  } hover:text-indigo-600 transition-colors flex items-center`}
                   activeClass="active"
                 >
                   {link.name}
                 </ScrollLink>
-              ) : (
-                <span
-                  className={`cursor-pointer font-medium ${
-                    scrolled ? "text-neutral-700" : "text-black"
-                  }`}
+              ) : link.type === "link" ? (
+                <RouterLink
+                  to={link.to}
+                  className={`font-medium ${
+                    scrolled ? "text-neutral-800" : "text-neutral-800"
+                  } hover:text-indigo-600 transition-colors flex items-center`}
                 >
                   {link.name}
-                </span>
+                </RouterLink>
+              ) : (
+                <button
+                  className={`font-medium ${
+                    scrolled ? "text-neutral-800" : "text-neutral-800"
+                  } hover:text-indigo-600 transition-colors flex items-center`}
+                >
+                  {link.name}
+                  <FiChevronDown
+                    className={`ml-1 transition-transform ${
+                      hoveredItem === link.to ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
               )}
 
               <AnimatePresence>
-                {hoveredService === link.to && (
+                {hoveredItem === link.to && link.type === "dropdown" && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0  bg-white shadow-lg w-[250px] rounded-lg p-4 mt-1 group"
-                    onMouseEnter={() => setHoveredService(link.to)}
-                    onMouseLeave={() => setHoveredService(null)}
+                    className="absolute top-full left-1/2 -translate-x-1/2 bg-white shadow-xl rounded-lg mt-1 overflow-hidden"
+                    onMouseEnter={() => setHoveredItem(link.to)}
+                    onMouseLeave={() => setHoveredItem(null)}
                   >
-                    <div className="grid grid-cols-2 gap-4">
-                      {link.subCategories?.map((category) => (
-                        <div key={category.id}>
-                          <h3 className="font-medium text-slate-900 mb-2">
-                            {category.name}
-                          </h3>
-                          <ul className="space-y-1">
-                            {servicesSubMenu[category.id]?.map((item) => (
-                              <li key={item.to}>
-                                <Link
-                                  to={item.to}
-                                  className="text-sm text-slate-600 hover:text-indigo-600"
-                                >
-                                  {item.name}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="mt-4 border-t pt-4">
-                      <Link
-                        to="/services"
-                        className="text-indigo-600 hover:text-indigo-800 text-sm font-medium"
-                      >
-                        View All Services →
-                      </Link>
-                    </div>
+                    {renderDesktopSubmenu(link)}
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
           ))}
-        </nav> */}
+        </nav>
+
         {/* CTA Button */}
         <motion.div
           className="hidden lg:block"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
         >
           <ScrollLink
             to="contact"
-            spy={true}
-            smooth={true}
-            offset={-100}
-            duration={500}
-            className={`bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium py-3 px-7 rounded-full hover:shadow-lg transition-all`}
+            onClick={closeMenu}
+            className="block w-full text-center bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium py-3 px-6 rounded-xl hover:shadow-lg transition-all"
           >
             Get Started
           </ScrollLink>
         </motion.div>
+
         {/* Mobile Menu Button */}
         <motion.button
-          className="lg:hidden z-50 text-2xl"
+          className="lg:hidden z-50 p-2"
           whileTap={{ scale: 0.9 }}
           onClick={toggleMenu}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           {isOpen ? (
-            <FiX
-              className={scrolled || isOpen ? "text-neutral-800" : "text-black"}
-            />
+            <FiX className="text-neutral-800 text-2xl" />
           ) : (
-            <FiMenu className={scrolled ? "text-neutral-800" : "text-black"} />
+            <FiMenu className="text-neutral-800 text-2xl" />
           )}
         </motion.button>
+
         {/* Mobile Menu */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              className="fixed inset-0 bg-black/30 backdrop-blur-sm lg:hidden "
+              className="fixed inset-0 bg-black/20 backdrop-blur-sm lg:hidden z-40"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              onClick={closeMenu}
             >
               <motion.div
-                className="absolute right-0 top-0 h-screen w-full bg-white/100 backdrop-blur-lg px-6 py-8 shadow-xl "
+                className="absolute right-0 top-0 h-screen w-4/5 max-w-sm bg-white shadow-xl overflow-y-auto"
                 initial={{ x: "100%" }}
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                onClick={(e) => e.stopPropagation()}
               >
-                <div className="flex flex-col h-full">
-                  {/* Menu Items */}
-                  <div className="flex flex-col gap-8 mt-11 pr-3">
-                    {navLinks.map((link, index) => (
-                      <motion.div
-                        key={link.to}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.1 * index }}
-                      >
-                        <ScrollLink
-                          to={link.to}
-                          onClick={closeMenu}
-                          className="flex items-center px-4 py-1 text-lg font-medium text-gray-800 hover:bg-gray-50 rounded-xl transition-colors"
-                        >
-                          {link.name}
-                        </ScrollLink>
-                        <hr />
-                        {index !== navLinks.length - 1 && (
-                          <div className="mx-4 border-b border-gray-100  " />
+                <div className="flex flex-col h-full p-6">
+                  {/* <div className="flex justify-end mb-8">
+                    <button onClick={closeMenu} className="p-2">
+                      <FiX className="text-neutral-800 text-xl" />
+                    </button>
+                  </div> */}
+
+                  <div className="flex flex-col gap-2">
+                    {navLinks.map((link) => (
+                      <div key={link.to} className="border-b border-gray-100">
+                        {link.type === "dropdown" ? (
+                          <div>
+                            <button
+                              onClick={() => toggleMobileSubmenu(link.to)}
+                              className="flex items-center justify-between w-full py-3 text-lg font-medium text-gray-800"
+                            >
+                              <span>{link.name}</span>
+                              <FiChevronDown
+                                className={`transition-transform ${
+                                  mobileOpenSubmenu === link.to
+                                    ? "rotate-180"
+                                    : ""
+                                }`}
+                              />
+                            </button>
+                            <AnimatePresence>
+                              {mobileOpenSubmenu === link.to && (
+                                <motion.div
+                                  initial={{ opacity: 0, height: 0 }}
+                                  animate={{ opacity: 1, height: "auto" }}
+                                  exit={{ opacity: 0, height: 0 }}
+                                  transition={{ duration: 0.2 }}
+                                  className="pl-4 overflow-hidden"
+                                >
+                                  <div className="space-y-3 py-2">
+                                    {link.subCategories?.map((category) => (
+                                      <div key={category.id}>
+                                        <h4 className="font-medium text-gray-700 mb-2">
+                                          {category.name}
+                                        </h4>
+                                        <ul className="space-y-2 pl-2 mb-4">
+                                          {servicesSubMenu[category.id]?.map(
+                                            (item) => (
+                                              <li key={item.to}>
+                                                <RouterLink
+                                                  to={item.to}
+                                                  onClick={closeMenu}
+                                                  className="text-gray-600 hover:text-indigo-600 text-sm flex items-center py-1"
+                                                >
+                                                  {item.name}
+                                                </RouterLink>
+                                              </li>
+                                            )
+                                          )}
+                                        </ul>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                        ) : link.type === "scroll" ? (
+                          <ScrollLink
+                            to={link.to}
+                            onClick={closeMenu}
+                            spy={true}
+                            smooth={true}
+                            offset={-100}
+                            duration={500}
+                            className="block py-3 text-lg font-medium text-gray-800 hover:text-indigo-600"
+                          >
+                            {link.name}
+                          </ScrollLink>
+                        ) : (
+                          <RouterLink
+                            to={link.to}
+                            onClick={closeMenu}
+                            className="block py-3 text-lg font-medium text-gray-800 hover:text-indigo-600"
+                          >
+                            {link.name}
+                          </RouterLink>
                         )}
-                      </motion.div>
+                      </div>
                     ))}
                   </div>
 

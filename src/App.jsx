@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import { motion } from "framer-motion";
-import Scrollbar from "smooth-scrollbar";
 
 // Components
 import Navbar from "./components/Navbar";
@@ -29,28 +29,28 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
-      <Navbar scrolled={scrolled} />
+    <Router>
+      <div className="app">
+        <Navbar scrolled={scrolled} />
 
-      <motion.main
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Hero />
-        <Services />
-        <Clients />
-        <About />
-        <Statistics />
-        {/* <Testimonials /> */}
-        {/* <Team /> */}
-        <Portfolio />
-        <Contact />
-      </motion.main>
+        <motion.main
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Hero id="hero" />
+          <Services id="services" />
+          <Clients />
+          <About id="about" />
+          <Statistics />
+          <Portfolio id="portfolio" />
+          <Contact id="contact" />
+        </motion.main>
 
-      <Footer />
-      <ScrollToTop />
-    </div>
+        <Footer />
+        <ScrollToTop />
+      </div>
+    </Router>
   );
 }
 
