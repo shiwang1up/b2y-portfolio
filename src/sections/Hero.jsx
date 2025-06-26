@@ -195,7 +195,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <motion.div
-              className="relative z-10"
+              className="relative z-10 "
               animate={{ y: [0, -15, 0] }}
               transition={{
                 duration: 5,
@@ -211,7 +211,8 @@ const Hero = () => {
 
               {/* Floating stats card */}
               <motion.div
-                className="absolute -bottom-24 -left-24 bg-white p-[12px] rounded-lg shadow-xl"
+                className="absolute -bottom-10 -left-2 lg:-bottom-24 lg:-left-24 bg-white p-[8px] lg:p-[12px] rounded-lg shadow-xl"
+                // className="absolute -bottom-24 -left-2 bg-white p-[12px] rounded-lg shadow-xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1 }}
@@ -220,17 +221,17 @@ const Hero = () => {
                   boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
                 }}
               >
-                <div className="flex items-center space-x-12">
+                <div className="flex items-center space-x-2 md:space-x-12">
                   <div className="w-48 h-48 rounded-full bg-primary-100 flex items-center justify-center">
                     <span className="text-primary-600 text-sm font-bold">
                       100%
                     </span>
                   </div>
                   <div>
-                    <p className="text-neutral-800 font-medium">
+                    <p className="text-neutral-800 font-medium text-xs md:text-lg">
                       Client satisfaction
                     </p>
-                    <p className="text-neutral-500 text-sm">
+                    <p className="text-neutral-500 text-xs md:text-sm">
                       Based on 20+ projects
                     </p>
                   </div>
@@ -239,7 +240,7 @@ const Hero = () => {
 
               {/* Floating tech card */}
               <motion.div
-                className="absolute -top-24 -right-24 bg-white p-[12px] rounded-lg shadow-xl"
+                className="absolute lg:-top-24 lg:-right-24 -top-10 -right-2 bg-white p-[8px] lg:p-[12px] rounded-lg shadow-xl"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.2 }}
@@ -248,17 +249,17 @@ const Hero = () => {
                   boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
                 }}
               >
-                <div className="flex items-center space-x-12">
+                <div className="flex items-center space-x-2 md:space-x-12">
                   <div className="w-48 h-48 rounded-full bg-secondary-100 flex items-center justify-center">
-                    <span className="text-secondary-600 text-lg font-bold">
+                    <span className="text-secondary-600 text-sm md:text-lg font-bold">
                       2+
                     </span>
                   </div>
                   <div>
-                    <p className="text-neutral-800 font-medium">
+                    <p className="text-neutral-800 text-xs md:text-lg font-medium">
                       Years Experience
                     </p>
-                    <p className="text-neutral-500 text-sm">
+                    <p className="text-neutral-500 text-xs md:text-sm">
                       Advanced solutions
                     </p>
                   </div>
