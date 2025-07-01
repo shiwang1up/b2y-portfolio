@@ -10,8 +10,8 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      position: "CEO, TechStart",
+      name: "Upasana Taku",
+      position: "CEO, Mobikwik",
       image:
         "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=600",
       quote:
@@ -19,7 +19,7 @@ const Testimonials = () => {
       rating: 5,
     },
     {
-      name: "Michael Chen",
+      name: "Periye Aneesh",
       position: "CTO, Innovate Inc.",
       image:
         "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -28,8 +28,8 @@ const Testimonials = () => {
       rating: 5,
     },
     {
-      name: "Emily Rodriguez",
-      position: "Marketing Director, Growth Brands",
+      name: "Neha Behani",
+      position: "Marketing Director, Moojic",
       image:
         "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=600",
       quote:

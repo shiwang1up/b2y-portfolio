@@ -1,20 +1,19 @@
-import { useState, useEffect } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { motion } from "framer-motion";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Homepage from "./sections/Homepage";
 
-// Components
+import MachineLearning from "./pages/ai/MachineLearning";
+import ComputerVision from "./pages/ai/ComputerVision";
+import NaturalLanguageProcessing from "./pages/ai/NaturalLanguageProcessing";
+import WebDevelopment from "./pages/development/WebDevelopment";
+import MobileApps from "./pages/development/MobileApps";
+import CustomSoftware from "./pages/development/CustomSoftware";
+import ITStrategy from "./pages/consulting/ITStrategy";
+import CloudSolutions from "./pages/consulting/CloudSolutions";
+import DigitalTransformation from "./pages/consulting/DigitalTransformation";
+import Layout from "./components/Layout";
 import Navbar from "./components/Navbar";
+import { useEffect, useState } from "react";
 import Footer from "./components/Footer";
-import ScrollToTop from "./components/ScrollToTop";
-
-// Page Sections
-import Hero from "./sections/Hero";
-import Services from "./sections/Services";
-import About from "./sections/About";
-import Statistics from "./sections/Statistics";
-import Portfolio from "./sections/Portfolio";
-import Contact from "./sections/Contact";
-import Clients from "./sections/Clients";
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -30,26 +29,25 @@ function App() {
 
   return (
     <Router>
-      <div className="app">
+      <Layout>
         <Navbar scrolled={scrolled} />
-
-        <motion.main
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Hero id="hero" />
-          <Services id="services" />
-          <Clients />
-          <About id="about" />
-          <Statistics />
-          <Portfolio id="portfolio" />
-          <Contact id="contact" />
-        </motion.main>
-
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/ai/ml" element={<MachineLearning />} />
+          <Route path="/ai/cv" element={<ComputerVision />} />
+          <Route path="/ai/nlp" element={<NaturalLanguageProcessing />} />
+          <Route path="/dev/web" element={<WebDevelopment />} />
+          <Route path="/dev/mobile" element={<MobileApps />} />
+          <Route path="/dev/custom" element={<CustomSoftware />} />
+          <Route path="/consulting/strategy" element={<ITStrategy />} />
+          <Route path="/consulting/cloud" element={<CloudSolutions />} />
+          <Route
+            path="/consulting/digital"
+            element={<DigitalTransformation />}
+          />
+        </Routes>
         <Footer />
-        <ScrollToTop />
-      </div>
+      </Layout>
     </Router>
   );
 }
