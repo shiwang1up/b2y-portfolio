@@ -3,32 +3,33 @@ import { Smartphone, Tablet, Zap, Users, ArrowRight } from 'lucide-react';
 
 const MobileApps: React.FC = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-white pt-80 overflow-hidden color-white items-center bg-gradient-to-br">
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-purple-900 to-purple-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[32px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <Smartphone className="h-8 w-8 text-purple-300" />
+                <Smartphone className="h-[32px] w-[32px] text-purple-300" />
                 <span className="text-purple-300 font-semibold">Development Services</span>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 Mobile App Development
               </h1>
-              <p className="text-xl text-purple-100 mb-8">
-                Create powerful, intuitive mobile applications that engage users and 
+              <p className="text-xl text-purple-100 mb-[32px]">
+                Create powerful, intuitive mobile applications that engage users and
                 drive business growth across iOS and Android platforms.
               </p>
-              <button className="bg-white text-purple-900 px-8 py-3 rounded-lg font-semibold hover:bg-purple-50 transition-colors flex items-center">
+              <button className="bg-white text-purple-900 px-[32px] py-3 rounded-lg font-semibold hover:bg-purple-50 transition-colors flex items-center">
                 Build Your App
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>
             </div>
             <div className="lg:text-center">
-              <img 
-                src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                alt="Mobile App Development" 
+              <img
+                src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Mobile App Development"
                 className="rounded-lg shadow-xl"
               />
             </div>
@@ -38,8 +39,8 @@ const MobileApps: React.FC = () => {
 
       {/* Services Section */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[32px]">
+          <div className="text-center mb-[64px]">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Mobile Development Services
             </h2>
@@ -48,14 +49,14 @@ const MobileApps: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-lg mb-6">
-                <Smartphone className="h-8 w-8 text-blue-700" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[32px]">
+            <div className="bg-white rounded-xl shadow-lg p-[32px]">
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-blue-100 rounded-lg mb-6">
+                <Smartphone className="h-[32px] w-[32px] text-blue-700" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Native App Development</h3>
               <p className="text-gray-600 mb-6">
-                Build high-performance native applications for iOS and Android 
+                Build high-performance native applications for iOS and Android
                 with platform-specific features and optimal user experience.
               </p>
               <div className="grid grid-cols-2 gap-4">
@@ -80,13 +81,13 @@ const MobileApps: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <div className="flex items-center justify-center w-16 h-16 bg-green-100 rounded-lg mb-6">
-                <Tablet className="h-8 w-8 text-green-700" />
+            <div className="bg-white rounded-xl shadow-lg p-[32px]">
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-green-100 rounded-lg mb-6">
+                <Tablet className="h-[32px] w-[32px] text-green-700" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Cross-Platform Development</h3>
               <p className="text-gray-600 mb-6">
-                Develop once, deploy everywhere with cross-platform solutions 
+                Develop once, deploy everywhere with cross-platform solutions
                 that reduce development time and costs.
               </p>
               <div className="grid grid-cols-1 gap-4">
@@ -116,8 +117,8 @@ const MobileApps: React.FC = () => {
 
       {/* App Categories */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[32px]">
+          <div className="text-center mb-[64px]">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Mobile App Categories
             </h2>
@@ -126,8 +127,8 @@ const MobileApps: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[32px]">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-[32px]">
               <h3 className="text-xl font-bold text-gray-900 mb-4">E-commerce Apps</h3>
               <p className="text-gray-600 mb-4">
                 Create seamless shopping experiences with secure payment processing.
@@ -141,7 +142,7 @@ const MobileApps: React.FC = () => {
               </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8">
+            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-[32px]">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Social Media Apps</h3>
               <p className="text-gray-600 mb-4">
                 Build engaging social platforms that connect and inspire communities.
@@ -155,7 +156,7 @@ const MobileApps: React.FC = () => {
               </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-8">
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-[32px]">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Business Apps</h3>
               <p className="text-gray-600 mb-4">
                 Streamline operations with custom business and productivity applications.
@@ -169,7 +170,7 @@ const MobileApps: React.FC = () => {
               </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-8">
+            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-[32px]">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Healthcare Apps</h3>
               <p className="text-gray-600 mb-4">
                 Develop secure, compliant healthcare solutions for better patient care.
@@ -183,7 +184,7 @@ const MobileApps: React.FC = () => {
               </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-8">
+            <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-[32px]">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Education Apps</h3>
               <p className="text-gray-600 mb-4">
                 Create engaging learning experiences with interactive educational apps.
@@ -197,7 +198,7 @@ const MobileApps: React.FC = () => {
               </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl p-8">
+            <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl p-[32px]">
               <h3 className="text-xl font-bold text-gray-900 mb-4">On-Demand Apps</h3>
               <p className="text-gray-600 mb-4">
                 Build marketplace and on-demand service applications with real-time features.
@@ -216,8 +217,8 @@ const MobileApps: React.FC = () => {
 
       {/* Features Section */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[32px]">
+          <div className="text-center mb-[64px]">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Key Features We Implement
             </h2>
@@ -226,10 +227,10 @@ const MobileApps: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[32px]">
             <div className="text-center">
-              <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-lg mb-4 mx-auto">
-                <Users className="h-8 w-8 text-blue-700" />
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-blue-100 rounded-lg mb-4 mx-auto">
+                <Users className="h-[32px] w-[32px] text-blue-700" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">User Authentication</h3>
               <p className="text-gray-600 text-sm">
@@ -238,8 +239,8 @@ const MobileApps: React.FC = () => {
             </div>
 
             <div className="text-center">
-              <div className="flex items-center justify-center w-16 h-16 bg-green-100 rounded-lg mb-4 mx-auto">
-                <Zap className="h-8 w-8 text-green-700" />
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-green-100 rounded-lg mb-4 mx-auto">
+                <Zap className="h-[32px] w-[32px] text-green-700" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Push Notifications</h3>
               <p className="text-gray-600 text-sm">
@@ -248,8 +249,8 @@ const MobileApps: React.FC = () => {
             </div>
 
             <div className="text-center">
-              <div className="flex items-center justify-center w-16 h-16 bg-purple-100 rounded-lg mb-4 mx-auto">
-                <Smartphone className="h-8 w-8 text-purple-700" />
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-purple-100 rounded-lg mb-4 mx-auto">
+                <Smartphone className="h-[32px] w-[32px] text-purple-700" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Offline Functionality</h3>
               <p className="text-gray-600 text-sm">
@@ -258,8 +259,8 @@ const MobileApps: React.FC = () => {
             </div>
 
             <div className="text-center">
-              <div className="flex items-center justify-center w-16 h-16 bg-orange-100 rounded-lg mb-4 mx-auto">
-                <Tablet className="h-8 w-8 text-orange-700" />
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-orange-100 rounded-lg mb-4 mx-auto">
+                <Tablet className="h-[32px] w-[32px] text-orange-700" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Analytics Integration</h3>
               <p className="text-gray-600 text-sm">
@@ -272,19 +273,19 @@ const MobileApps: React.FC = () => {
 
       {/* CTA Section */}
       <section className="py-20 bg-purple-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[32px] text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Launch Your Mobile App?
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Transform your innovative idea into a successful mobile application 
+          <p className="text-xl mb-[32px] max-w-2xl mx-auto">
+            Transform your innovative idea into a successful mobile application
             that users love and businesses depend on.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-purple-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+            <button className="bg-white text-purple-700 px-[32px] py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
               Start Development
             </button>
-            <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-700 transition-colors">
+            <button className="border-2 border-white text-white px-[32px] py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-700 transition-colors">
               View App Portfolio
             </button>
           </div>

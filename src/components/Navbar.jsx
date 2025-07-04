@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link as RouterLink } from "react-router-dom";
-import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
+import { Link as ScrollLink, scroller } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX, FiChevronDown } from "react-icons/fi";
 import Logo from "../assets/logo/b2yLogo.png";
@@ -9,6 +9,8 @@ const Navbar = ({ scrolled }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
   const [mobileOpenSubmenu, setMobileOpenSubmenu] = useState(null);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const servicesSubMenu = {
     "ai-solutions": [
@@ -53,8 +55,30 @@ const Navbar = ({ scrolled }) => {
     };
   }, [isOpen]);
 
+  const handleNavClick = (to) => {
+    if (location.pathname === "/") {
+      scroller.scrollTo(to, {
+        spy: true,
+        smooth: true,
+        offset: -100,
+        duration: 500,
+      });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        scroller.scrollTo(to, {
+          spy: true,
+          smooth: true,
+          offset: -100,
+          duration: 500,
+        });
+      }, 100);
+    }
+    closeMenu();
+  };
+
   const navLinks = [
-    { name: "Home", to: "/", type: "scroll" },
+    { name: "Home", to: "hero", type: "scroll" },
     {
       name: "Services",
       to: "services",
@@ -67,7 +91,6 @@ const Navbar = ({ scrolled }) => {
     },
     { name: "About", to: "about", type: "scroll" },
     { name: "Portfolio", to: "portfolio", type: "scroll" },
-    { name: "Blog", to: "/blog", type: "link" },
     { name: "Contact", to: "contact", type: "scroll" },
   ];
 
@@ -83,10 +106,10 @@ const Navbar = ({ scrolled }) => {
 
   const renderDesktopSubmenu = (link) => {
     return (
-      <div className="grid grid-cols-3 gap-6 p-6 w-[700px]">
+      <div className="grid grid-cols-3 gap-6 p-6 w-[700px] ">
         {link.subCategories?.map((category) => (
           <div key={category.id} className="space-y-3">
-            <h3 className="font-semibold text-lg text-slate-900 mb-2 pb-2 border-b border-slate-100">
+            <h3 className="font-semibold text-lg text-slate-900 mb-2 pb-2 border-b border-[#adb5bd]">
               {category.name}
             </h3>
             <ul className="space-y-2">
@@ -144,19 +167,14 @@ const Navbar = ({ scrolled }) => {
               onMouseLeave={() => setHoveredItem(null)}
             >
               {link.type === "scroll" ? (
-                <ScrollLink
-                  to={link.to}
-                  spy={true}
-                  smooth={true}
-                  offset={-100}
-                  duration={500}
+                <button
+                  onClick={() => handleNavClick(link.to)}
                   className={`nav-link font-medium cursor-pointer ${
                     scrolled ? "text-neutral-800" : "text-neutral-800"
                   } hover:text-indigo-600 transition-colors flex items-center`}
-                  activeClass="active"
                 >
                   {link.name}
-                </ScrollLink>
+                </button>
               ) : link.type === "link" ? (
                 <RouterLink
                   to={link.to}
@@ -188,7 +206,11 @@ const Navbar = ({ scrolled }) => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 bg-white shadow-xl rounded-lg mt-1 overflow-hidden"
+                    className={`absolute top-full left-1/2 -translate-x-1/2 shadow-xl rounded-lg mt-1 overflow-hidden ${
+                      scrolled
+                        ? "bg-[#e9ecef]/95 backdrop-blur-md py-3 "
+                        : "bg-white backdrop-blur-md py-5 "
+                    }`}
                     onMouseEnter={() => setHoveredItem(link.to)}
                     onMouseLeave={() => setHoveredItem(null)}
                   >
@@ -207,13 +229,12 @@ const Navbar = ({ scrolled }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
         >
-          <ScrollLink
-            to="contact"
-            onClick={closeMenu}
+          <button
+            onClick={() => handleNavClick("contact")}
             className="block w-full text-center bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium py-3 px-6 rounded-xl hover:shadow-lg transition-all"
           >
             Get Started
-          </ScrollLink>
+          </button>
         </motion.div>
 
         {/* Mobile Menu Button */}
@@ -241,7 +262,7 @@ const Navbar = ({ scrolled }) => {
               onClick={closeMenu}
             >
               <motion.div
-                className="absolute right-0 top-0 h-screen w-4/5 max-w-sm bg-white shadow-xl overflow-y-auto"
+                className={`absolute right-0 top-0 h-screen w-4/5 max-w-sm bg-white shadow-xl overflow-y-auto`}
                 initial={{ x: "100%" }}
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
@@ -282,7 +303,7 @@ const Navbar = ({ scrolled }) => {
                                   transition={{ duration: 0.2 }}
                                   className="pl-4 overflow-hidden"
                                 >
-                                  <div className="space-y-3 py-2">
+                                  <div className="space-y-3 py-2 ">
                                     {link.subCategories?.map((category) => (
                                       <div key={category.id}>
                                         <h4 className="font-medium text-gray-700 mb-2">
@@ -311,17 +332,12 @@ const Navbar = ({ scrolled }) => {
                             </AnimatePresence>
                           </div>
                         ) : link.type === "scroll" ? (
-                          <ScrollLink
-                            to={link.to}
-                            onClick={closeMenu}
-                            spy={true}
-                            smooth={true}
-                            offset={-100}
-                            duration={500}
+                          <button
+                            onClick={() => handleNavClick(link.to)}
                             className="block py-3 text-lg font-medium text-gray-800 hover:text-indigo-600"
                           >
                             {link.name}
-                          </ScrollLink>
+                          </button>
                         ) : (
                           <RouterLink
                             to={link.to}

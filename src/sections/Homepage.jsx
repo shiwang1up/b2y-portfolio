@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Hero from "./Hero";
 import Services from "./Services";
@@ -10,17 +9,6 @@ import Contact from "./Contact";
 import ScrollToTop from "../components/ScrollToTop";
 
 const Homepage = () => {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <div className="app">
       {/* <Navbar scrolled={scrolled} /> */}
@@ -29,14 +17,24 @@ const Homepage = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <Hero id="hero" />
-        <Services id="services" />
+        <div id="hero">
+          <Hero />
+        </div>
+        <div id="services">
+          <Services />
+        </div>
         <Clients />
-        <About id="about" />
+        <div id="about">
+          <About />
+        </div>
         {/* <Team id="contact" /> */}
         <StatisticsCards />
-        <Portfolio id="portfolio" />
-        <Contact id="contact" />
+        <div id="portfolio">
+          <Portfolio />
+        </div>
+        <div id="contact">
+          <Contact />
+        </div>
       </motion.main>
 
       <ScrollToTop />

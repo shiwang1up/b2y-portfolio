@@ -3,32 +3,33 @@ import { Zap, TrendingUp, Users, Cog, ArrowRight } from 'lucide-react';
 
 const DigitalTransformation: React.FC = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-white pt-80 overflow-hidden color-white items-center bg-gradient-to-br">
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-purple-900 to-purple-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[32px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <Zap className="h-8 w-8 text-purple-300" />
+                <Zap className="h-[32px] w-[32px] text-purple-300" />
                 <span className="text-purple-300 font-semibold">Consulting Services</span>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 Digital Transformation
               </h1>
-              <p className="text-xl text-purple-100 mb-8">
-                Revolutionize your business with comprehensive digital transformation strategies 
+              <p className="text-xl text-purple-100 mb-[32px]">
+                Revolutionize your business with comprehensive digital transformation strategies
                 that modernize operations, enhance customer experiences, and drive growth.
               </p>
-              <button className="bg-white text-purple-900 px-8 py-3 rounded-lg font-semibold hover:bg-purple-50 transition-colors flex items-center">
+              <button className="bg-white text-purple-900 px-[32px] py-3 rounded-lg font-semibold hover:bg-purple-50 transition-colors flex items-center">
                 Begin Transformation
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>
             </div>
             <div className="lg:text-center">
-              <img 
-                src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                alt="Digital Transformation" 
+              <img
+                src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Digital Transformation"
                 className="rounded-lg shadow-xl"
               />
             </div>
@@ -38,8 +39,8 @@ const DigitalTransformation: React.FC = () => {
 
       {/* Transformation Areas */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[32px]">
+          <div className="text-center mb-[64px]">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Comprehensive Digital Transformation
             </h2>
@@ -48,14 +49,14 @@ const DigitalTransformation: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-lg mb-6">
-                <Users className="h-8 w-8 text-blue-700" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[32px]">
+            <div className="bg-white rounded-xl shadow-lg p-[32px]">
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-blue-100 rounded-lg mb-6">
+                <Users className="h-[32px] w-[32px] text-blue-700" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Customer Experience</h3>
               <p className="text-gray-600 mb-6">
-                Reimagine customer interactions with digital-first experiences that 
+                Reimagine customer interactions with digital-first experiences that
                 increase satisfaction, loyalty, and lifetime value.
               </p>
               <ul className="space-y-3 text-gray-600">
@@ -78,13 +79,13 @@ const DigitalTransformation: React.FC = () => {
               </ul>
             </div>
 
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <div className="flex items-center justify-center w-16 h-16 bg-green-100 rounded-lg mb-6">
-                <Cog className="h-8 w-8 text-green-700" />
+            <div className="bg-white rounded-xl shadow-lg p-[32px]">
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-green-100 rounded-lg mb-6">
+                <Cog className="h-[32px] w-[32px] text-green-700" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Process Automation</h3>
               <p className="text-gray-600 mb-6">
-                Streamline operations with intelligent automation that reduces costs, 
+                Streamline operations with intelligent automation that reduces costs,
                 improves efficiency, and eliminates manual errors.
               </p>
               <ul className="space-y-3 text-gray-600">
@@ -107,13 +108,13 @@ const DigitalTransformation: React.FC = () => {
               </ul>
             </div>
 
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <div className="flex items-center justify-center w-16 h-16 bg-purple-100 rounded-lg mb-6">
-                <TrendingUp className="h-8 w-8 text-purple-700" />
+            <div className="bg-white rounded-xl shadow-lg p-[32px]">
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-purple-100 rounded-lg mb-6">
+                <TrendingUp className="h-[32px] w-[32px] text-purple-700" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Data & Analytics</h3>
               <p className="text-gray-600 mb-6">
-                Harness the power of data with advanced analytics platforms that 
+                Harness the power of data with advanced analytics platforms that
                 provide actionable insights for strategic decision-making.
               </p>
               <ul className="space-y-3 text-gray-600">
@@ -136,13 +137,13 @@ const DigitalTransformation: React.FC = () => {
               </ul>
             </div>
 
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <div className="flex items-center justify-center w-16 h-16 bg-orange-100 rounded-lg mb-6">
-                <Zap className="h-8 w-8 text-orange-700" />
+            <div className="bg-white rounded-xl shadow-lg p-[32px]">
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-orange-100 rounded-lg mb-6">
+                <Zap className="h-[32px] w-[32px] text-orange-700" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Technology Modernization</h3>
               <p className="text-gray-600 mb-6">
-                Modernize legacy systems and infrastructure with cutting-edge 
+                Modernize legacy systems and infrastructure with cutting-edge
                 technologies that support future growth and innovation.
               </p>
               <ul className="space-y-3 text-gray-600">
@@ -170,8 +171,8 @@ const DigitalTransformation: React.FC = () => {
 
       {/* Transformation Framework */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[32px]">
+          <div className="text-center mb-[64px]">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Our Transformation Framework
             </h2>
@@ -180,9 +181,9 @@ const DigitalTransformation: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[32px]">
             <div className="text-center">
-              <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4 mx-auto">
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-blue-100 rounded-full mb-4 mx-auto">
                 <span className="text-2xl font-bold text-blue-700">1</span>
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Vision & Strategy</h3>
@@ -192,7 +193,7 @@ const DigitalTransformation: React.FC = () => {
             </div>
 
             <div className="text-center">
-              <div className="flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4 mx-auto">
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-green-100 rounded-full mb-4 mx-auto">
                 <span className="text-2xl font-bold text-green-700">2</span>
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Current State Analysis</h3>
@@ -202,7 +203,7 @@ const DigitalTransformation: React.FC = () => {
             </div>
 
             <div className="text-center">
-              <div className="flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4 mx-auto">
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-purple-100 rounded-full mb-4 mx-auto">
                 <span className="text-2xl font-bold text-purple-700">3</span>
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Roadmap Design</h3>
@@ -212,7 +213,7 @@ const DigitalTransformation: React.FC = () => {
             </div>
 
             <div className="text-center">
-              <div className="flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-4 mx-auto">
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-orange-100 rounded-full mb-4 mx-auto">
                 <span className="text-2xl font-bold text-orange-700">4</span>
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Implementation</h3>
@@ -226,8 +227,8 @@ const DigitalTransformation: React.FC = () => {
 
       {/* Industry Impact */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[32px]">
+          <div className="text-center mb-[64px]">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Industry-Specific Transformations
             </h2>
@@ -236,8 +237,8 @@ const DigitalTransformation: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[32px]">
+            <div className="bg-white rounded-xl p-[32px]">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Financial Services</h3>
               <p className="text-gray-600 mb-4">
                 Digital banking, fintech integration, and regulatory compliance automation.
@@ -258,7 +259,7 @@ const DigitalTransformation: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-xl p-8">
+            <div className="bg-white rounded-xl p-[32px]">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Healthcare</h3>
               <p className="text-gray-600 mb-4">
                 Telemedicine, patient management systems, and digital health records.
@@ -279,7 +280,7 @@ const DigitalTransformation: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-xl p-8">
+            <div className="bg-white rounded-xl p-[32px]">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Manufacturing</h3>
               <p className="text-gray-600 mb-4">
                 Industry 4.0, IoT integration, and smart factory implementations.
@@ -305,8 +306,8 @@ const DigitalTransformation: React.FC = () => {
 
       {/* Success Metrics */}
       <section className="py-20 bg-purple-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[32px]">
+          <div className="text-center mb-[64px]">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Transformation Success Metrics
             </h2>
@@ -315,7 +316,7 @@ const DigitalTransformation: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[32px]">
             <div className="text-center">
               <div className="text-4xl font-bold text-purple-300 mb-2">2.5x</div>
               <div className="text-lg font-semibold mb-2">Revenue Growth</div>
@@ -353,14 +354,14 @@ const DigitalTransformation: React.FC = () => {
 
       {/* Change Management */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[32px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Change Management Excellence
               </h2>
-              <p className="text-xl text-gray-600 mb-8">
-                Successful digital transformation requires more than technology—it requires 
+              <p className="text-xl text-gray-600 mb-[32px]">
+                Successful digital transformation requires more than technology—it requires
                 effective change management to ensure adoption and sustainability.
               </p>
               <div className="space-y-4">
@@ -394,9 +395,9 @@ const DigitalTransformation: React.FC = () => {
               </div>
             </div>
             <div className="lg:text-center">
-              <img 
-                src="https://images.pexels.com/photos/3184299/pexels-photo-3184299.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                alt="Change Management" 
+              <img
+                src="https://images.pexels.com/photos/3184299/pexels-photo-3184299.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Change Management"
                 className="rounded-lg shadow-xl"
               />
             </div>
@@ -406,19 +407,19 @@ const DigitalTransformation: React.FC = () => {
 
       {/* CTA Section */}
       <section className="py-20 bg-purple-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[32px] text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Transform Your Business?
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Begin your digital transformation journey with a comprehensive strategy 
+          <p className="text-xl mb-[32px] max-w-2xl mx-auto">
+            Begin your digital transformation journey with a comprehensive strategy
             that positions your business for future success.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-purple-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+            <button className="bg-white text-purple-700 px-[32px] py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
               Start Transformation Assessment
             </button>
-            <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-700 transition-colors">
+            <button className="border-2 border-white text-white px-[32px] py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-700 transition-colors">
               Download Strategy Guide
             </button>
           </div>

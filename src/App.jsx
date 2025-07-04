@@ -14,6 +14,7 @@ import Layout from "./components/Layout";
 import Navbar from "./components/Navbar";
 import { useEffect, useState } from "react";
 import Footer from "./components/Footer";
+import ScrollToTopOnRouteChange from "./components/ScrollToTopOnRouteChange";
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTopOnRouteChange />
       <Layout>
         <Navbar scrolled={scrolled} />
         <Routes>

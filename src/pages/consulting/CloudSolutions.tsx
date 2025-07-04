@@ -3,32 +3,32 @@ import { Cloud, Server, Shield, Zap, ArrowRight } from 'lucide-react';
 
 const CloudSolutions: React.FC = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-white pt-80 overflow-hidden color-white items-center bg-gradient-to-br">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-sky-900 to-sky-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[32px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <Cloud className="h-8 w-8 text-sky-300" />
+                <Cloud className="h-[32px] w-[32px] text-sky-300" />
                 <span className="text-sky-300 font-semibold">Consulting Services</span>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 Cloud Solutions Consulting
               </h1>
-              <p className="text-xl text-sky-100 mb-8">
-                Transform your business with scalable, secure, and efficient cloud infrastructure 
+              <p className="text-xl text-sky-100 mb-[32px]">
+                Transform your business with scalable, secure, and efficient cloud infrastructure
                 that reduces costs and accelerates innovation.
               </p>
-              <button className="bg-white text-sky-900 px-8 py-3 rounded-lg font-semibold hover:bg-sky-50 transition-colors flex items-center">
+              <button className="bg-white text-sky-900 px-[32px] py-3 rounded-lg font-semibold hover:bg-sky-50 transition-colors flex items-center">
                 Start Cloud Journey
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>
             </div>
             <div className="lg:text-center">
-              <img 
-                src="https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                alt="Cloud Solutions" 
+              <img
+                src="https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Cloud Solutions"
                 className="rounded-lg shadow-xl"
               />
             </div>
@@ -38,8 +38,8 @@ const CloudSolutions: React.FC = () => {
 
       {/* Services Section */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[32px]">
+          <div className="text-center mb-[64px]">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Comprehensive Cloud Services
             </h2>
@@ -48,14 +48,14 @@ const CloudSolutions: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-lg mb-6">
-                <Cloud className="h-8 w-8 text-blue-700" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[32px]">
+            <div className="bg-white rounded-xl shadow-lg p-[32px]">
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-blue-100 rounded-lg mb-6">
+                <Cloud className="h-[32px] w-[32px] text-blue-700" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Cloud Migration</h3>
               <p className="text-gray-600 mb-6">
-                Seamlessly migrate your applications, data, and infrastructure to the cloud 
+                Seamlessly migrate your applications, data, and infrastructure to the cloud
                 with minimal disruption and maximum efficiency.
               </p>
               <ul className="space-y-3 text-gray-600">
@@ -78,13 +78,13 @@ const CloudSolutions: React.FC = () => {
               </ul>
             </div>
 
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <div className="flex items-center justify-center w-16 h-16 bg-green-100 rounded-lg mb-6">
-                <Server className="h-8 w-8 text-green-700" />
+            <div className="bg-white rounded-xl shadow-lg p-[32px]">
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-green-100 rounded-lg mb-6">
+                <Server className="h-[32px] w-[32px] text-green-700" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Infrastructure Design</h3>
               <p className="text-gray-600 mb-6">
-                Design and implement scalable, resilient cloud architectures that 
+                Design and implement scalable, resilient cloud architectures that
                 support your business requirements and growth objectives.
               </p>
               <ul className="space-y-3 text-gray-600">
@@ -107,13 +107,13 @@ const CloudSolutions: React.FC = () => {
               </ul>
             </div>
 
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <div className="flex items-center justify-center w-16 h-16 bg-purple-100 rounded-lg mb-6">
-                <Shield className="h-8 w-8 text-purple-700" />
+            <div className="bg-white rounded-xl shadow-lg p-[32px]">
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-purple-100 rounded-lg mb-6">
+                <Shield className="h-[32px] w-[32px] text-purple-700" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Security & Compliance</h3>
               <p className="text-gray-600 mb-6">
-                Implement robust security measures and ensure compliance with industry 
+                Implement robust security measures and ensure compliance with industry
                 regulations in your cloud environment.
               </p>
               <ul className="space-y-3 text-gray-600">
@@ -136,13 +136,13 @@ const CloudSolutions: React.FC = () => {
               </ul>
             </div>
 
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <div className="flex items-center justify-center w-16 h-16 bg-orange-100 rounded-lg mb-6">
-                <Zap className="h-8 w-8 text-orange-700" />
+            <div className="bg-white rounded-xl shadow-lg p-[32px]">
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-orange-100 rounded-lg mb-6">
+                <Zap className="h-[32px] w-[32px] text-orange-700" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Performance Optimization</h3>
               <p className="text-gray-600 mb-6">
-                Continuously monitor and optimize your cloud infrastructure for peak 
+                Continuously monitor and optimize your cloud infrastructure for peak
                 performance, cost-efficiency, and reliability.
               </p>
               <ul className="space-y-3 text-gray-600">
@@ -170,8 +170,8 @@ const CloudSolutions: React.FC = () => {
 
       {/* Cloud Providers */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[32px]">
+          <div className="text-center mb-[64px]">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Multi-Cloud Expertise
             </h2>
@@ -180,8 +180,8 @@ const CloudSolutions: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-[32px]">
+            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-[32px]">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Amazon Web Services</h3>
               <p className="text-gray-600 mb-6">
                 Comprehensive AWS solutions including EC2, S3, Lambda, RDS, and advanced services.
@@ -196,7 +196,7 @@ const CloudSolutions: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-[32px]">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Microsoft Azure</h3>
               <p className="text-gray-600 mb-6">
                 Enterprise-grade Azure solutions with strong integration with Microsoft ecosystem.
@@ -211,7 +211,7 @@ const CloudSolutions: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8">
+            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-[32px]">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Google Cloud Platform</h3>
               <p className="text-gray-600 mb-6">
                 Leverage Google's innovation in AI, machine learning, and data analytics.
@@ -231,8 +231,8 @@ const CloudSolutions: React.FC = () => {
 
       {/* Benefits Section */}
       <section className="py-20 bg-sky-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[32px]">
+          <div className="text-center mb-[64px]">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Cloud Transformation Benefits
             </h2>
@@ -241,7 +241,7 @@ const CloudSolutions: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[32px]">
             <div className="text-center">
               <div className="text-4xl font-bold text-sky-300 mb-2">40%</div>
               <div className="text-lg font-semibold mb-2">Cost Savings</div>
@@ -279,8 +279,8 @@ const CloudSolutions: React.FC = () => {
 
       {/* Migration Process */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[32px]">
+          <div className="text-center mb-[64px]">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Cloud Migration Process
             </h2>
@@ -289,9 +289,9 @@ const CloudSolutions: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-[32px]">
             <div className="text-center">
-              <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4 mx-auto">
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-blue-100 rounded-full mb-4 mx-auto">
                 <span className="text-2xl font-bold text-blue-700">1</span>
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Assessment</h3>
@@ -301,7 +301,7 @@ const CloudSolutions: React.FC = () => {
             </div>
 
             <div className="text-center">
-              <div className="flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4 mx-auto">
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-green-100 rounded-full mb-4 mx-auto">
                 <span className="text-2xl font-bold text-green-700">2</span>
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Strategy</h3>
@@ -311,7 +311,7 @@ const CloudSolutions: React.FC = () => {
             </div>
 
             <div className="text-center">
-              <div className="flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4 mx-auto">
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-purple-100 rounded-full mb-4 mx-auto">
                 <span className="text-2xl font-bold text-purple-700">3</span>
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Design</h3>
@@ -321,7 +321,7 @@ const CloudSolutions: React.FC = () => {
             </div>
 
             <div className="text-center">
-              <div className="flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-4 mx-auto">
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-orange-100 rounded-full mb-4 mx-auto">
                 <span className="text-2xl font-bold text-orange-700">4</span>
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Migration</h3>
@@ -331,7 +331,7 @@ const CloudSolutions: React.FC = () => {
             </div>
 
             <div className="text-center">
-              <div className="flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4 mx-auto">
+              <div className="flex items-center justify-center w-[64px] h-[64px] bg-red-100 rounded-full mb-4 mx-auto">
                 <span className="text-2xl font-bold text-red-700">5</span>
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Optimization</h3>
@@ -345,19 +345,19 @@ const CloudSolutions: React.FC = () => {
 
       {/* CTA Section */}
       <section className="py-20 bg-sky-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[32px] text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Transform with Cloud?
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Accelerate your business transformation with scalable, secure, and cost-effective 
+          <p className="text-xl mb-[32px] max-w-2xl mx-auto">
+            Accelerate your business transformation with scalable, secure, and cost-effective
             cloud solutions tailored to your needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-sky-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+            <button className="bg-white text-sky-700 px-[32px] py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
               Start Cloud Assessment
             </button>
-            <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-sky-700 transition-colors">
+            <button className="border-2 border-white text-white px-[32px] py-3 rounded-lg font-semibold hover:bg-white hover:text-sky-700 transition-colors">
               Download Cloud Guide
             </button>
           </div>
