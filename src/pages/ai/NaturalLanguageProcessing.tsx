@@ -1,7 +1,31 @@
 import React from 'react';
 import { MessageSquare, Bot, FileText, Languages, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { scroller } from 'react-scroll';
 
 const NaturalLanguageProcessing: React.FC = () => {
+  const navigate = useNavigate();
+  const handleNavClick = (to) => {
+    if (location.pathname === "/") {
+      scroller.scrollTo(to, {
+        spy: true,
+        smooth: true,
+        offset: -100,
+        duration: 500,
+      });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        scroller.scrollTo(to, {
+          spy: true,
+          smooth: true,
+          offset: -100,
+          duration: 500,
+        });
+      }, 500);
+    }
+  };
+
   return (
     <div className="bg-white pt-80 overflow-hidden color-white items-center bg-gradient-to-br">
 
@@ -21,7 +45,9 @@ const NaturalLanguageProcessing: React.FC = () => {
                 Bridge the gap between human communication and machine understanding with
                 advanced NLP solutions that process, analyze, and generate natural language.
               </p>
-              <button className="bg-white text-green-900 px-[32px] py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors flex items-center">
+              <button className="bg-white text-green-900 px-[32px] py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors flex items-center"
+                onClick={() => handleNavClick('portfolio')}
+              >
                 Discover NLP Solutions
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>
@@ -232,10 +258,14 @@ const NaturalLanguageProcessing: React.FC = () => {
             cutting-edge NLP solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-green-700 px-[32px] py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+            <button className="bg-white text-green-700 px-[32px] py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              onClick={() => handleNavClick('contact')}
+            >
               Get Started Today
             </button>
-            <button className="border-2 border-white text-white px-[32px] py-3 rounded-lg font-semibold hover:bg-white hover:text-green-700 transition-colors">
+            <button className="border-2 border-white text-white px-[32px] py-3 rounded-lg font-semibold hover:bg-white hover:text-green-700 transition-colors"
+              onClick={() => handleNavClick('contact')}
+            >
               Schedule Demo
             </button>
           </div>

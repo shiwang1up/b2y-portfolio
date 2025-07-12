@@ -1,7 +1,31 @@
 import React from 'react';
 import { Eye, Camera, Scan, Shield, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { scroller } from 'react-scroll';
 
 const ComputerVision: React.FC = () => {
+  const navigate = useNavigate();
+  const handleNavClick = (to) => {
+    if (location.pathname === "/") {
+      scroller.scrollTo(to, {
+        spy: true,
+        smooth: true,
+        offset: -100,
+        duration: 500,
+      });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        scroller.scrollTo(to, {
+          spy: true,
+          smooth: true,
+          offset: -100,
+          duration: 500,
+        });
+      }, 500);
+    }
+  };
+
   return (
     <div className="bg-white pt-80 overflow-hidden color-white items-center bg-gradient-to-br">
       {/* Hero Section */}
@@ -20,7 +44,10 @@ const ComputerVision: React.FC = () => {
                 Enable machines to see, understand, and interpret visual data with cutting-edge
                 computer vision technology that transforms how you interact with images and video.
               </p>
-              <button className="bg-white text-purple-900 px-[32px] py-3 rounded-lg font-semibold hover:bg-purple-50 transition-colors flex items-center">
+              <button className="bg-white text-purple-900 px-[32px] py-3 rounded-lg font-semibold hover:bg-purple-50 transition-colors flex items-center"
+                onClick={() => handleNavClick('portfolio')}
+
+              >
                 Explore Solutions
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>
@@ -212,16 +239,20 @@ const ComputerVision: React.FC = () => {
             for your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-purple-700 px-[32px] py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+            <button className="bg-white text-purple-700 px-[32px] py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              onClick={() => handleNavClick('contact')}
+            >
               Start Your Project
             </button>
-            <button className="border-2 border-white text-white px-[32px] py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-700 transition-colors">
+            <button className="border-2 border-white text-white px-[32px] py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-700 transition-colors"
+              onClick={() => handleNavClick('contact')}
+            >
               Request Demo
             </button>
           </div>
         </div>
-      </section>
-    </div>
+      </section >
+    </div >
   );
 };
 

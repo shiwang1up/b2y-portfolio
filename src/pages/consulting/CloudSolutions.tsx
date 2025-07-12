@@ -1,7 +1,30 @@
 import React from 'react';
 import { Cloud, Server, Shield, Zap, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { scroller } from 'react-scroll';
 
 const CloudSolutions: React.FC = () => {
+  const navigate = useNavigate();
+  const handleNavClick = (to) => {
+    if (location.pathname === "/") {
+      scroller.scrollTo(to, {
+        spy: true,
+        smooth: true,
+        offset: -100,
+        duration: 500,
+      });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        scroller.scrollTo(to, {
+          spy: true,
+          smooth: true,
+          offset: -100,
+          duration: 500,
+        });
+      }, 500);
+    }
+  };
   return (
     <div className="bg-white pt-80 overflow-hidden color-white items-center bg-gradient-to-br">
       {/* Hero Section */}
@@ -20,7 +43,9 @@ const CloudSolutions: React.FC = () => {
                 Transform your business with scalable, secure, and efficient cloud infrastructure
                 that reduces costs and accelerates innovation.
               </p>
-              <button className="bg-white text-sky-900 px-[32px] py-3 rounded-lg font-semibold hover:bg-sky-50 transition-colors flex items-center">
+              <button className="bg-white text-sky-900 px-[32px] py-3 rounded-lg font-semibold hover:bg-sky-50 transition-colors flex items-center"
+                onClick={() => handleNavClick('contact')}
+              >
                 Start Cloud Journey
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>
@@ -354,11 +379,15 @@ const CloudSolutions: React.FC = () => {
             cloud solutions tailored to your needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-sky-700 px-[32px] py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+            <button className="bg-white text-sky-700 px-[32px] py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              onClick={() => handleNavClick('contact')}
+            >
               Start Cloud Assessment
             </button>
-            <button className="border-2 border-white text-white px-[32px] py-3 rounded-lg font-semibold hover:bg-white hover:text-sky-700 transition-colors">
-              Download Cloud Guide
+            <button className="border-2 border-white text-white px-[32px] py-3 rounded-lg font-semibold hover:bg-white hover:text-sky-700 transition-colors"
+              onClick={() => handleNavClick('portfolio')}
+            >
+              Explore Cloud Solutions
             </button>
           </div>
         </div>

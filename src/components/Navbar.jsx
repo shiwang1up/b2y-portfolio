@@ -14,19 +14,19 @@ const Navbar = ({ scrolled }) => {
 
   const servicesSubMenu = {
     "ai-solutions": [
-      { name: "Machine Learning", to: "/ai/ml" },
-      { name: "Computer Vision", to: "/ai/cv" },
-      { name: "Natural Language Processing", to: "/ai/nlp" },
+      { name: "Machine Learning", to: "/ai/ml", icon: "🤖" },
+      { name: "Computer Vision", to: "/ai/cv", icon: "👁️" },
+      { name: "Natural Language Processing", to: "/ai/nlp", icon: "💬" },
     ],
     development: [
-      { name: "Web Development", to: "/dev/web" },
-      { name: "Mobile Apps", to: "/dev/mobile" },
-      { name: "Custom Software", to: "/dev/custom" },
+      { name: "Web Development", to: "/dev/web", icon: "🌐" },
+      { name: "Mobile Apps", to: "/dev/mobile", icon: "📱" },
+      { name: "Custom Software", to: "/dev/custom", icon: "🛠️" },
     ],
     consulting: [
-      { name: "IT Strategy", to: "/consulting/strategy" },
-      { name: "Cloud Solutions", to: "/consulting/cloud" },
-      { name: "Digital Transformation", to: "/consulting/digital" },
+      { name: "IT Strategy", to: "/consulting/strategy", icon: "♟️" },
+      { name: "Cloud Solutions", to: "/consulting/cloud", icon: "☁️" },
+      { name: "Digital Transformation", to: "/consulting/digital", icon: "🔄" },
     ],
   };
 
@@ -84,9 +84,9 @@ const Navbar = ({ scrolled }) => {
       to: "services",
       type: "dropdown",
       subCategories: [
-        { name: "AI Solutions", id: "ai-solutions" },
-        { name: "Development", id: "development" },
-        { name: "Consulting", id: "consulting" },
+        { name: "AI Solutions", id: "ai-solutions", icon: "🧠" },
+        { name: "Development", id: "development", icon: "💻" },
+        { name: "Consulting", id: "consulting", icon: "📈" },
       ],
     },
     { name: "About", to: "about", type: "scroll" },
@@ -350,22 +350,6 @@ const Navbar = ({ scrolled }) => {
                       </div>
                     ))}
                   </div>
-
-                  {/* CTA Button */}
-                  {/* <motion.div
-                    className="mt-auto pt-8"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 }}
-                  >
-                    <ScrollLink
-                      to="contact"
-                      onClick={closeMenu}
-                      className="block w-full text-center bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium py-3 px-6 rounded-xl hover:shadow-lg transition-all"
-                    >
-                      Get Started
-                    </ScrollLink>
-                  </motion.div> */}
                 </div>
               </motion.div>
             </motion.div>

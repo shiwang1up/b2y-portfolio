@@ -31,7 +31,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-neutral-800 text-white pt-80 pb-24">
+    <footer className="bg-[#212f3c] text-white pt-80 pb-24">
+      {/* <footer className="bg-[#34495e] text-white pt-80 pb-24"> */}
       <div className="container-custom">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-48"

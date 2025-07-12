@@ -1,7 +1,30 @@
 import React from 'react';
 import { Globe, Smartphone, Zap, Shield, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { scroller } from 'react-scroll';
 
 const WebDevelopment: React.FC = () => {
+  const navigate = useNavigate();
+  const handleNavClick = (to) => {
+    if (location.pathname === "/") {
+      scroller.scrollTo(to, {
+        spy: true,
+        smooth: true,
+        offset: -100,
+        duration: 500,
+      });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        scroller.scrollTo(to, {
+          spy: true,
+          smooth: true,
+          offset: -100,
+          duration: 500,
+        });
+      }, 500);
+    }
+  };
   return (
     <div className="bg-white pt-80 overflow-hidden color-white items-center bg-gradient-to-br">
 
@@ -21,7 +44,9 @@ const WebDevelopment: React.FC = () => {
                 Build modern, scalable, and high-performance web applications that deliver
                 exceptional user experiences and drive business growth.
               </p>
-              <button className="bg-white text-blue-900 px-[32px] py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors flex items-center">
+              <button className="bg-white text-blue-900 px-[32px] py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors flex items-center"
+                onClick={() => handleNavClick('contact')}
+              >
                 Start Your Project
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>
@@ -196,11 +221,14 @@ const WebDevelopment: React.FC = () => {
                   <div className="text-blue-600 font-semibold">Python</div>
                 </div>
                 <div className="bg-gray-50 p-4 rounded-lg">
-                  <div className="text-purple-600 font-semibold">PHP</div>
+                  <div className="text-purple-600 font-semibold">.Net</div>
                 </div>
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <div className="text-orange-600 font-semibold">Java</div>
                 </div>
+                {/* <div className="bg-gray-50 p-4 rounded-lg">
+                  <div className="text-orange-600 font-semibold">.Net</div>
+                </div> */}
               </div>
             </div>
 
@@ -292,10 +320,14 @@ const WebDevelopment: React.FC = () => {
             and exceed your expectations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-700 px-[32px] py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+            <button className="bg-white text-blue-700 px-[32px] py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              onClick={() => handleNavClick('contact')}
+            >
               Start Your Project
             </button>
-            <button className="border-2 border-white text-white px-[32px] py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-700 transition-colors">
+            <button className="border-2 border-white text-white px-[32px] py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-700 transition-colors"
+              onClick={() => handleNavClick('portfolio')}
+            >
               View Portfolio
             </button>
           </div>

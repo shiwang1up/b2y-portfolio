@@ -1,7 +1,30 @@
 import React from 'react';
 import { Code, Cog, Database, Shield, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { scroller } from 'react-scroll';
 
 const CustomSoftware: React.FC = () => {
+  const navigate = useNavigate();
+  const handleNavClick = (to) => {
+    if (location.pathname === "/") {
+      scroller.scrollTo(to, {
+        spy: true,
+        smooth: true,
+        offset: -100,
+        duration: 500,
+      });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        scroller.scrollTo(to, {
+          spy: true,
+          smooth: true,
+          offset: -100,
+          duration: 500,
+        });
+      }, 500);
+    }
+  };
   return (
     <div className="bg-white pt-80 overflow-hidden color-white items-center bg-gradient-to-br">
 
@@ -21,7 +44,9 @@ const CustomSoftware: React.FC = () => {
                 Build bespoke software solutions tailored to your unique business requirements,
                 processes, and goals with our expert development team.
               </p>
-              <button className="bg-white text-gray-900 px-[32px] py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center">
+              <button className="bg-white text-gray-900 px-[32px] py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center"
+                onClick={() => handleNavClick('contact')}
+              >
                 Start Your Project
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>
@@ -310,10 +335,14 @@ const CustomSoftware: React.FC = () => {
             fits your business needs and objectives.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-gray-900 px-[32px] py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+            <button className="bg-white text-gray-900 px-[32px] py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              onClick={() => handleNavClick('contact')}
+            >
               Schedule Consultation
             </button>
-            <button className="border-2 border-white text-white px-[32px] py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors">
+            <button className="border-2 border-white text-white px-[32px] py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors"
+              onClick={() => handleNavClick('portfolio')}
+            >
               View Case Studies
             </button>
           </div>

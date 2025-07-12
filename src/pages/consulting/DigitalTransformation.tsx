@@ -1,7 +1,30 @@
 import React from 'react';
 import { Zap, TrendingUp, Users, Cog, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { scroller } from 'react-scroll';
 
 const DigitalTransformation: React.FC = () => {
+  const navigate = useNavigate();
+  const handleNavClick = (to) => {
+    if (location.pathname === "/") {
+      scroller.scrollTo(to, {
+        spy: true,
+        smooth: true,
+        offset: -100,
+        duration: 500,
+      });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        scroller.scrollTo(to, {
+          spy: true,
+          smooth: true,
+          offset: -100,
+          duration: 500,
+        });
+      }, 500);
+    }
+  };
   return (
     <div className="bg-white pt-80 overflow-hidden color-white items-center bg-gradient-to-br">
 
@@ -21,7 +44,9 @@ const DigitalTransformation: React.FC = () => {
                 Revolutionize your business with comprehensive digital transformation strategies
                 that modernize operations, enhance customer experiences, and drive growth.
               </p>
-              <button className="bg-white text-purple-900 px-[32px] py-3 rounded-lg font-semibold hover:bg-purple-50 transition-colors flex items-center">
+              <button className="bg-white text-purple-900 px-[32px] py-3 rounded-lg font-semibold hover:bg-purple-50 transition-colors flex items-center"
+                onClick={() => handleNavClick('contact')}
+              >
                 Begin Transformation
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>
@@ -416,11 +441,15 @@ const DigitalTransformation: React.FC = () => {
             that positions your business for future success.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-purple-700 px-[32px] py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+            <button className="bg-white text-purple-700 px-[32px] py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              onClick={() => handleNavClick('contact')}
+            >
               Start Transformation Assessment
             </button>
-            <button className="border-2 border-white text-white px-[32px] py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-700 transition-colors">
-              Download Strategy Guide
+            <button className="border-2 border-white text-white px-[32px] py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-700 transition-colors"
+              onClick={() => handleNavClick('contact')}
+            >
+              Explore Strategy Guide
             </button>
           </div>
         </div>
