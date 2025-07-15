@@ -5,6 +5,8 @@ import { BiSupport } from "react-icons/bi";
 import { FaConnectdevelop, FaCogs } from "react-icons/fa";
 import { RiRobot2Line } from "react-icons/ri";
 import SectionHeading from "../components/SectionHeading";
+import { Link as RouterLink } from "react-router-dom";
+
 // import AiImage from "../assets/services/ai-solutions.png";
 
 const Services = () => {
@@ -21,6 +23,7 @@ const Services = () => {
       image:
         "https://images.unsplash.com/photo-1697577418970-95d99b5a55cf?q=80&w=1992&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       // image: AiImage,
+      linkTo: "/ai/ml",
     },
     {
       icon: <FiSmartphone size={28} />,
@@ -31,6 +34,7 @@ const Services = () => {
       image:
         "https://images.pexels.com/photos/424299/pexels-photo-424299.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       // image: AiImage,
+      linkTo: "/dev/mobile",
     },
     {
       icon: <FaCogs size={28} />,
@@ -41,6 +45,7 @@ const Services = () => {
       image:
         "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       // image: AiImage,
+      linkTo: "/dev/custom",
     },
     {
       icon: <FiCode size={28} />,
@@ -51,6 +56,7 @@ const Services = () => {
       image:
         "https://images.pexels.com/photos/8284721/pexels-photo-8284721.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       // image: AiImage,
+      linkTo: "/dev/web",
     },
     {
       icon: <FaConnectdevelop size={28} />,
@@ -61,6 +67,7 @@ const Services = () => {
       image:
         "https://images.pexels.com/photos/6779716/pexels-photo-6779716.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       // image: AiImage,
+      linkTo: "/consulting/strategy",
     },
     {
       icon: <BiSupport size={28} />,
@@ -71,6 +78,7 @@ const Services = () => {
       image:
         "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       // image: AiImage,
+      linkTo: "/consulting/strategy",
     },
 
     {
@@ -82,6 +90,7 @@ const Services = () => {
       image:
         "https://plus.unsplash.com/premium_photo-1683120968693-9af51578770e?q=80&w=1926&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       // image: AiImage,
+      linkTo: "/consulting/cloud",
     },
   ];
 
@@ -168,7 +177,7 @@ const Services = () => {
                 <div
                   className={`relative z-10 h-full bg-${colorClasses.icon} p-32  transition-all duration-300 shadow-card flex flex-col group-hover:border-transparent `}
                 >
-                  <div className="bottom-4 left-4 right-4 bg-gradient-to-r from-[#17202a]/90 backdrop-blur-sm p-4 rounded-lg  to-slate-700/70 z-0 ">
+                  <div className="bottom-4 left-4 right-4 bg-gradient-to-r from-[#4d5656]/85 backdrop-blur-sm p-4 rounded-lg  to-[#839192]/70 z-0 ">
                     <div className="w-full flex items-center justify-end mb-24">
                       <div
                         className={`w-64 h-64 rounded-full ${colorClasses.icon} flex items-center justify-center  mb-24 transition-all duration-300 ${colorClasses.hover} `}
@@ -182,26 +191,32 @@ const Services = () => {
                     <p className="text-neutral-200 mb-24 flex-grow">
                       {service.description}
                     </p>
-                    <motion.a
-                      href="#"
-                      className={`inline-flex items-center font-medium  hover:text-${colorClasses.icon}-300`}
-                      whileHover={{ x: 5 }}
+
+                    <RouterLink
+                      // onClick={}
+                      to={service.linkTo}
                     >
-                      Learn more
-                      <svg
-                        className="ml-8 w-16 h-16"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
+                      <motion.a
+                        href="#"
+                        className={`inline-flex items-center font-medium  hover:text-${colorClasses.icon}-300`}
+                        whileHover={{ x: 5 }}
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </motion.a>
+                        Learn more
+                        <svg
+                          className="ml-8 w-16 h-16"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </motion.a>
+                    </RouterLink>
                   </div>
                 </div>
               </motion.div>

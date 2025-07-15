@@ -31,8 +31,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#212f3c] text-white pt-80 pb-24">
-      {/* <footer className="bg-[#34495e] text-white pt-80 pb-24"> */}
+    <footer className="bg-[#212f3c] relative text-white pt-80 pb-24">
+      <div className=" absolute inset-0 bg-[url('../assets/UI/ShinyOverlay.svg')] bg-cover bg-center opacity-30"></div>
       <div className="container-custom">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-48"
@@ -41,7 +41,6 @@ const Footer = () => {
           viewport={{ once: true, amount: 0.1 }}
           variants={footerVariants}
         >
-          {/* Company Info */}
           <motion.div variants={itemVariants}>
             <div className="mb-24">
               <a href="/" className="flex items-center">
@@ -93,7 +92,6 @@ const Footer = () => {
             </div>
           </motion.div>
 
-          {/* Services */}
           <motion.div variants={itemVariants}>
             <h3 className="text-xl font-semibold mb-24">Services</h3>
             <ul className="space-y-8">
@@ -117,18 +115,10 @@ const Footer = () => {
             </ul>
           </motion.div>
 
-          {/* Quick Links */}
           <motion.div variants={itemVariants}>
             <h3 className="text-xl font-semibold mb-24">Quick Links</h3>
             <ul className="space-y-8">
-              {[
-                "About Us",
-                "Case Studies",
-                // "Blog",
-                "Careers",
-                // "FAQ",
-                // "Privacy Policy",
-              ].map((link, index) => (
+              {["About Us", "Case Studies", "Careers"].map((link, index) => (
                 <li key={index}>
                   <a
                     href="#"
@@ -182,7 +172,6 @@ const Footer = () => {
           </motion.div>
         </motion.div>
 
-        {/* Copyright */}
         <motion.div
           className="mt-64 pt-24 border-t border-neutral-700 text-center text-neutral-400"
           initial={{ opacity: 0 }}
