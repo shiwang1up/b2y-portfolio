@@ -106,23 +106,39 @@ const Navbar = ({ scrolled }) => {
 
   const renderDesktopSubmenu = (link) => {
     return (
-      <div className="grid grid-cols-3 gap-6 p-6 w-[700px] ">
+      // <div className="grid grid-cols-3 gap-[32px] p-[32px] w-[800px] bg-white/95 backdrop-blur-lg rounded-xl shadow-2xl border border-gray-100  bg -gradient-to-r from-purple-500 to-blue-500">
+      <div className="grid grid-cols-3 gap-[32px] p-[32px] w-[800px] bg-white/95 backdrop-blur-lg rounded-xl shadow-2xl border border-gray-100">
         {link.subCategories?.map((category) => (
-          <div key={category.id} className="space-y-3">
-            <h3 className="font-semibold text-lg text-slate-900 mb-2 pb-2 border-b border-[#adb5bd]">
-              {category.name}
-            </h3>
-            <ul className="space-y-2">
+          <div key={category.id} className="space-y-4">
+            <div className="flex items-center space-x-3">
+              <span className="text-2xl">{category.icon}</span>
+              <h3 className="font-bold text-lg text-gray-800">
+                {category.name}
+              </h3>
+            </div>
+            <ul className="space-y-3 mt-3">
               {servicesSubMenu[category.id]?.map((item) => (
-                <li key={item.to}>
+                <motion.li
+                  key={item.to}
+                  whileHover={{ x: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
                   <RouterLink
                     to={item.to}
-                    className="text-sm text-slate-600 hover:text-indigo-600 flex items-center transition-colors"
+                    className="flex items-center p-2 rounded-lg transition-all hover:bg-indigo-50 group"
                     onClick={closeMenu}
                   >
-                    {item.name}
+                    <span className="mr-3 text-lg">{item.icon}</span>
+                    <div>
+                      <p className="text-sm font-medium text-gray-700 group-hover:text-indigo-600">
+                        {item.name}
+                      </p>
+                      <p className="text-xs text-gray-400 group-hover:text-indigo-400">
+                        Learn more →
+                      </p>
+                    </div>
                   </RouterLink>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
@@ -130,7 +146,6 @@ const Navbar = ({ scrolled }) => {
       </div>
     );
   };
-
   return (
     <motion.header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -206,11 +221,12 @@ const Navbar = ({ scrolled }) => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className={`absolute top-full left-1/2 -translate-x-1/2 shadow-xl rounded-lg mt-1 overflow-hidden ${
-                      scrolled
-                        ? "bg-[#e9ecef]/95 backdrop-blur-md py-3 "
-                        : "bg-white backdrop-blur-md py-5 "
-                    }`}
+                    className={`absolute top-full  shadow-xl rounded-lg mt-4 overflow-hidden `}
+                    // className={`absolute top-full left-1/2 -translate-x-1/2 shadow-xl rounded-lg mt-1 overflow-hidden ${
+                    //   scrolled
+                    //     ? "bg-[#e9ecef]/95 backdrop-blur-md py-3 "
+                    //     : "bg-white backdrop-blur-md py-5 "
+                    // }`}
                     onMouseEnter={() => setHoveredItem(link.to)}
                     onMouseLeave={() => setHoveredItem(null)}
                   >
@@ -270,12 +286,6 @@ const Navbar = ({ scrolled }) => {
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="flex flex-col h-full p-6">
-                  {/* <div className="flex justify-end mb-8">
-                    <button onClick={closeMenu} className="p-2">
-                      <FiX className="text-neutral-800 text-xl" />
-                    </button>
-                  </div> */}
-
                   <div className="flex flex-col gap-2">
                     {navLinks.map((link) => (
                       <div key={link.to} className="border-b border-gray-100">
@@ -303,24 +313,38 @@ const Navbar = ({ scrolled }) => {
                                   transition={{ duration: 0.2 }}
                                   className="pl-4 overflow-hidden"
                                 >
-                                  <div className="space-y-3 py-2 ">
+                                  <div className="space-y-4 py-3">
                                     {link.subCategories?.map((category) => (
-                                      <div key={category.id}>
-                                        <h4 className="font-medium text-gray-700 mb-2">
-                                          {category.name}
-                                        </h4>
-                                        <ul className="space-y-2 pl-2 mb-4">
+                                      <div
+                                        key={category.id}
+                                        className="bg-gray-50 rounded-lg p-3"
+                                      >
+                                        <div className="flex items-center space-x-2 mb-2">
+                                          <span className="text-xl">
+                                            {category.icon}
+                                          </span>
+                                          <h4 className="font-semibold text-gray-700">
+                                            {category.name}
+                                          </h4>
+                                        </div>
+                                        <ul className="space-y-2 pl-2">
                                           {servicesSubMenu[category.id]?.map(
                                             (item) => (
-                                              <li key={item.to}>
+                                              <motion.li
+                                                key={item.to}
+                                                whileTap={{ scale: 0.98 }}
+                                              >
                                                 <RouterLink
                                                   to={item.to}
                                                   onClick={closeMenu}
-                                                  className="text-gray-600 hover:text-indigo-600 text-sm flex items-center py-1"
+                                                  className="flex items-center py-2 px-3 rounded-md text-gray-600 hover:bg-indigo-100 hover:text-indigo-600 text-sm transition-colors"
                                                 >
+                                                  <span className="mr-2">
+                                                    {item.icon}
+                                                  </span>
                                                   {item.name}
                                                 </RouterLink>
-                                              </li>
+                                              </motion.li>
                                             )
                                           )}
                                         </ul>
