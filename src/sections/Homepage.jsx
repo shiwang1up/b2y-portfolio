@@ -7,6 +7,9 @@ import StatisticsCards from "./Statistics";
 import Portfolio from "./Portfolio";
 import Contact from "./Contact";
 import ScrollToTop from "../components/ScrollToTop";
+import ServicesVariant3 from "./Services";
+import ServicesVariant4 from "./Services";
+import ServicesVariant1 from "./Services";
 
 const Homepage = () => {
   return (
@@ -21,7 +24,7 @@ const Homepage = () => {
           <Hero />
         </div>
         <div id="services">
-          <Services />
+          <ServicesVariant1 />
         </div>
         <Clients />
         <div id="about">

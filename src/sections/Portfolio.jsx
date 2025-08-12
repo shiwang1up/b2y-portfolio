@@ -10,9 +10,22 @@ import image5 from "../assets/portfolio/5.jpg";
 import image6 from "../assets/portfolio/6.png";
 import image7 from "../assets/portfolio/7.jpg";
 import image8 from "../assets/portfolio/8.png";
+import image82 from "../assets/portfolio/8.2.png";
 import image9 from "../assets/portfolio/9.png";
 import image10 from "../assets/portfolio/10.png";
 import image11 from "../assets/portfolio/11.png";
+import ecom2 from "../assets/portfolio/ecom2.png";
+import ecom3 from "../assets/portfolio/ecom3.png";
+import ecom4 from "../assets/portfolio/ecom4.png";
+import d1 from "../assets/portfolio/dv1.png";
+import d2 from "../assets/portfolio/dv2.png";
+import d3 from "../assets/portfolio/dv3.png";
+import d4 from "../assets/portfolio/dv4.png";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
 const techColors = {
   React: "bg-cyan-100 text-cyan-700", // Cyan (React logo color)
@@ -42,6 +55,7 @@ const Portfolio = () => {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const [activeCategory, setActiveCategory] = useState("all");
   const [visibleCount, setVisibleCount] = useState(4);
+  const [hoveredId, setHoveredId] = useState(null);
 
   const blogPosts = [
     {
@@ -61,7 +75,8 @@ const Portfolio = () => {
         "Successfully launched an e-commerce platform, integrating modern design with seamless functionality to drive customer engagement and sales. Delivered an e-commerce website with a focus on innovation and user-centric design, ensuring a standout shopping experience in a competitive market",
       category: "E-Commerce",
       tech: ["React", "Node.js", "Websockets", "SQL"],
-      image: image2,
+      images: [image2, ecom2, ecom3, ecom4],
+      type: "slider",
       color: "yellow-100",
     },
     {
@@ -134,18 +149,9 @@ const Portfolio = () => {
       image: image9,
       color: "lime-100",
     },
+
     {
       id: 10,
-      title: "E-Commerce",
-      excerpt:
-        "Enables users to browse, search, and purchase products online with ease. It features a user-friendly interface. Secure payment options, and personalized recommendations for a seamless shopping experience.",
-      category: "E-Commerce",
-      tech: ["Android", "iOS", "Node.js", "React Native"],
-      image: image10,
-      color: "teal-100",
-    },
-    {
-      id: 11,
       title: "Mana Mandi Mobile App",
       excerpt:
         "Our Mobile app is designed to deliver seamless performance, solving complex problems with a user-friendly interface. With cutting-edge features and a commitment to excellence, it empowers users to achieve more with ease and efficiency.",
@@ -153,6 +159,17 @@ const Portfolio = () => {
       tech: ["Android", "iOS", "Node.js", "React Native"],
       image: image11,
       color: "indigo-100",
+    },
+    {
+      id: 11,
+      title: "Dealvisory",
+      excerpt:
+        "Developed Interior Design System, an ERP platform for interior designers to manage orders, payments, and clients. Built with React Native (Mobile), React.js (Web), Node.js (Backend), and PostgreSQL (Database).",
+      category: "ERP Platform",
+      tech: ["React", "Node.js", "SQL", "React Native"],
+      images: [d1, d2, d3, d4],
+      type: "slider",
+      color: "purple-100",
     },
   ];
 
@@ -245,6 +262,8 @@ const Portfolio = () => {
                 className={` bg-${post.color} rounded-xl overflow-hidden shadow-card group`}
                 variants={itemVariants}
                 whileHover={{ y: -10 }}
+                onMouseEnter={() => setHoveredId(post.id)}
+                onMouseLeave={() => setHoveredId(null)}
               >
                 <div className="px-24 pt-24 rounded-2xl relative  ">
                   <div className="relative mb-5">
@@ -316,11 +335,41 @@ const Portfolio = () => {
                     <div className="absolute z-10 inset-0 bg-gradient-to-b to-white/90 from-  transparent pointer-events-none rounded-inherit" />
 
                     {/* Foreground image */}
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 absolute z-20"
-                    />
+                    {post.type === "slider" ? (
+                      <Swiper
+                        autoplay={{
+                          delay: 4000,
+                          disableOnInteraction: false,
+                          pauseOnMouseEnter: false,
+                          stopOnLastSlide: false,
+                          pauseOnMouseLeave: true,
+                        }}
+                        modules={[Autoplay]}
+                        className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 absolute z-20"
+                        onMouseEnter={(swiper) => {
+                          swiper.autoplay.start();
+                        }}
+                        onMouseLeave={(swiper) => {
+                          swiper.autoplay.stop();
+                        }}
+                      >
+                        {post.images.map((image, index) => (
+                          <SwiperSlide key={index}>
+                            <img
+                              src={image}
+                              alt={`${post.title} - ${index + 1}`}
+                              className="w-full h-full object-contain"
+                            />
+                          </SwiperSlide>
+                        ))}
+                      </Swiper>
+                    ) : (
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 absolute z-20"
+                      />
+                    )}
                   </div>
                 </div>
               </motion.article>
