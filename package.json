@@ -20,7 +20,8 @@
     "react-router-dom": "^7.6.3",
     "react-scroll": "^1.9.0",
     "smooth-scrollbar": "^8.8.4",
-    "swiper": "^11.0.3"
+    "swiper": "^11.0.3",
+    "vite-plugin-pwa": "^1.0.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
