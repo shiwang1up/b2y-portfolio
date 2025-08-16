@@ -4,35 +4,5 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), VitePWA({
-    registerType: 'autoUpdate',
-    includeAssets: ['favicon.svg', 'robots.txt', 'apple-touch-icon.png'],
-    manifest: {
-      name: 'B2Y Infy Solutions',
-      short_name: 'B2Y',
-      description: 'B2Y Infy Solutions delivers innovative IT solutions to help businesses transform and succeed in the digital landscape.',
-      theme_color: '#ffffff',
-      background_color: '#ffffff',
-      display: 'standalone',
-      start_url: '/',
-      icons: [
-        {
-          src: './public/pwa-192x192.png',
-          sizes: '192x192',
-          type: 'image/png',
-        },
-        {
-          src: './public/pwa-512x512.png',
-          sizes: '512x512',
-          type: 'image/png',
-        },
-        {
-          src: './public/pwa-512x512.png',
-          sizes: '512x512',
-          type: 'image/png',
-          purpose: 'any maskable',
-        },
-      ],
-    }
-  })],
+  plugins: [react()],
 })
