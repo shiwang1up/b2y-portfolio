@@ -3,7 +3,7 @@ import { Zap, TrendingUp, Users, Cog, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { scroller } from 'react-scroll';
 
-const DigitalTransformation: React.FC = () => {
+const DigitalTransformation = () => {
   const navigate = useNavigate();
   const handleNavClick = (to) => {
     if (location.pathname === "/") {

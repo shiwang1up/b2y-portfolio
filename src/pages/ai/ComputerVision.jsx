@@ -3,7 +3,7 @@ import { Eye, Camera, Scan, Shield, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { scroller } from 'react-scroll';
 
-const ComputerVision: React.FC = () => {
+const ComputerVision = () => {
   const navigate = useNavigate();
   const handleNavClick = (to) => {
     if (location.pathname === "/") {

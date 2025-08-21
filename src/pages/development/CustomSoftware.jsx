@@ -3,7 +3,7 @@ import { Code, Cog, Database, Shield, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { scroller } from 'react-scroll';
 
-const CustomSoftware: React.FC = () => {
+const CustomSoftware = () => {
   const navigate = useNavigate();
   const handleNavClick = (to) => {
     if (location.pathname === "/") {

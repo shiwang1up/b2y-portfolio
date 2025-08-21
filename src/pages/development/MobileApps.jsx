@@ -3,7 +3,7 @@ import { Smartphone, Tablet, Zap, Users, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { scroller } from 'react-scroll';
 
-const MobileApps: React.FC = () => {
+const MobileApps = () => {
   const navigate = useNavigate();
   const handleNavClick = (to) => {
     if (location.pathname === "/") {

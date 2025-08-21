@@ -639,283 +639,8 @@
 
 // export default ServicesVariant4;
 // ------------------------------------------------------------------------------------
-import React, { useRef } from "react";
-import { motion, useInView, useMotionValue, useTransform } from "framer-motion";
-import {
-  Code,
-  Cloud,
-  Smartphone,
-  HeadphonesIcon,
-  Network,
-  Settings,
-  Bot,
-} from "lucide-react";
-import SectionHeading from "../components/SectionHeading";
-
-// Bold Typography with Kinetic Energy
-const ServicesVariant5 = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
-
-  const services = [
-    {
-      icon: <Bot size={36} />,
-      title: "AI SOLUTIONS",
-      subtitle: "INTELLIGENT AUTOMATION",
-      description:
-        "Revolutionary artificial intelligence that transforms your business operations with smart automation and predictive analytics.",
-      color: "from-purple-500 to-violet-700",
-      number: "01",
-    },
-    {
-      icon: <Smartphone size={36} />,
-      title: "MOBILE DEV",
-      subtitle: "CROSS-PLATFORM MASTERY",
-      description:
-        "Native and cross-platform mobile applications that deliver exceptional performance and user experience.",
-      color: "from-blue-500 to-cyan-700",
-      number: "02",
-    },
-    {
-      icon: <Settings size={36} />,
-      title: "SOFTWARE DEV",
-      subtitle: "ENTERPRISE SOLUTIONS",
-      description:
-        "Scalable software architectures built with cutting-edge technologies and industry best practices.",
-      color: "from-green-500 to-emerald-700",
-      number: "03",
-    },
-    {
-      icon: <Code size={36} />,
-      title: "WEB DEV",
-      subtitle: "DIGITAL EXPERIENCES",
-      description:
-        "Modern web applications that captivate users with stunning visuals and seamless interactions.",
-      color: "from-orange-500 to-red-700",
-      number: "04",
-    },
-    {
-      icon: <Network size={36} />,
-      title: "IT CONSULTING",
-      subtitle: "STRATEGIC GUIDANCE",
-      description:
-        "Expert technology consulting that aligns your digital infrastructure with business objectives.",
-      color: "from-indigo-500 to-purple-700",
-      number: "05",
-    },
-    {
-      icon: <HeadphonesIcon size={36} />,
-      title: "IT SUPPORT",
-      subtitle: "24/7 RELIABILITY",
-      description:
-        "Comprehensive support services ensuring optimal performance and minimal downtime for your systems.",
-      color: "from-pink-500 to-rose-700",
-      number: "06",
-    },
-    {
-      icon: <Cloud size={36} />,
-      title: "CLOUD SOLUTIONS",
-      subtitle: "INFINITE SCALE",
-      description:
-        "Complete cloud strategies that maximize efficiency, security, and cost-effectiveness for your business.",
-      color: "from-sky-500 to-blue-700",
-      number: "07",
-    },
-  ];
-
-  return (
-    <section className="section bg-neutral-50" ref={ref}>
-      <div className="container-custom">
-        {/* Dynamic background pattern */}
-        <div className="absolute inset-0 opacity-5"></div>
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `
-            radial-gradient(circle at 2px 2px, #6366f1 1px, transparent 0)
-          `,
-              backgroundSize: "40px 40px",
-            }}
-          />
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-20"
-          >
-            <motion.h2
-              className="text-6xl font-black text-black mb-4 tracking-tighter leading-none"
-              initial={{ scale: 0.8 }}
-              animate={isInView ? { scale: 1 } : { scale: 0.8 }}
-              transition={{ duration: 1, type: "spring", stiffness: 100 }}
-            >
-              SERVICES
-            </motion.h2>
-            <motion.div
-              className="flex justify-center items-center space-x-4 mb-[32px]"
-              initial={{ width: 0 }}
-              animate={isInView ? { width: "auto" } : { width: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
-            >
-              <div className="h-1 w-20 bg-black" />
-              <div className="text-sm font-bold tracking-widest text-black uppercase">
-                you believe we achieve
-              </div>
-              <div className="h-1 w-20 bg-black" />
-            </motion.div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-medium">
-              Solutions that move your business forward
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{
-                  opacity: 0,
-                  x: index % 2 === 0 ? -100 : 100,
-                  rotateZ: index % 2 === 0 ? -5 : 5,
-                }}
-                animate={
-                  isInView
-                    ? {
-                        opacity: 1,
-                        x: 0,
-                        rotateZ: 0,
-                      }
-                    : {
-                        opacity: 0,
-                        x: index % 2 === 0 ? -100 : 100,
-                        rotateZ: index % 2 === 0 ? -5 : 5,
-                      }
-                }
-                transition={{
-                  duration: 0.8,
-                  delay: index * 0.1,
-                  type: "spring",
-                  stiffness: 80,
-                }}
-                whileHover={{
-                  scale: 1.02,
-                  rotateZ: index % 2 === 0 ? 1 : -1,
-                  transition: { duration: 0.3 },
-                }}
-                className="group cursor-pointer"
-              >
-                <div className="relative p-[32px] bg-gray-50 hover:bg-white transition-all duration-500 border-2 border-gray-200 hover:border-black rounded-none overflow-hidden">
-                  {/* Number overlay */}
-                  <div className="absolute top-0 right-0 text-8xl font-black text-gray-100 group-hover:text-gray-200 transition-colors duration-500 leading-none">
-                    {service.number}
-                  </div>
-
-                  {/* Kinetic icon */}
-                  <motion.div
-                    whileHover={{
-                      scale: 1.2,
-                      rotate: 360,
-                    }}
-                    transition={{
-                      duration: 0.8,
-                      type: "spring",
-                      stiffness: 200,
-                    }}
-                    className={`relative z-10 w-20 h-20 bg-gradient-to-r ${service.color} rounded-full flex items-center justify-center mb-[32px] text-white shadow-lg`}
-                  >
-                    {service.icon}
-                  </motion.div>
-
-                  {/* Explosive typography */}
-                  <motion.div
-                    whileHover={{ x: 10 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <h3 className="text-4xl font-black text-black mb-2 tracking-tight group-hover:tracking-wide transition-all duration-300">
-                      {service.title}
-                    </h3>
-                    <p className="text-sm font-bold text-gray-500 mb-4 tracking-widest uppercase">
-                      {service.subtitle}
-                    </p>
-                    <p className="text-gray-700 mb-[32px] leading-relaxed font-medium">
-                      {service.description}
-                    </p>
-                  </motion.div>
-
-                  {/* Kinetic button */}
-                  <motion.button
-                    whileHover={{
-                      scale: 1.05,
-                      x: 20,
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`
-                    px-[32px] py-4 bg-gray-800 text-white font-bold tracking-widest text-sm
-                    hover:bg-gradient-to-r ${service.color} transition-all duration-300
-                    transform skew-x-[-15deg] hover:skew-x-0
-                  `}
-                  >
-                    <span className="block transform skew-x-[15deg] hover:skew-x-0">
-                      LEARN MORE →
-                    </span>
-                  </motion.button>
-
-                  {/* Kinetic accent lines */}
-                  <motion.div
-                    className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-transparent via-gray-800 to-transparent"
-                    initial={{ width: "0%" }}
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.5 }}
-                  />
-
-                  <motion.div
-                    className="absolute top-0 right-0 w-1 bg-gradient-to-b from-transparent via-gray-800 to-transparent"
-                    initial={{ height: "0%" }}
-                    whileHover={{ height: "100%" }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                  />
-
-                  {/* Energy particles */}
-                  {[...Array(5)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute w-1 h-1 bg-gray-800 rounded-full opacity-0 group-hover:opacity-60"
-                      style={{
-                        top: Math.random() * 100 + "%",
-                        left: Math.random() * 100 + "%",
-                      }}
-                      animate={{
-                        scale: [0, 1, 0],
-                        x: [0, Math.random() * 50 - 25],
-                        y: [0, Math.random() * 50 - 25],
-                      }}
-                      transition={{
-                        duration: 1,
-                        repeat: Infinity,
-                        delay: Math.random() * 2,
-                      }}
-                    />
-                  ))}
-                  <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute bottom-4 left-4 w-2 h-2 rounded-full bg-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default ServicesVariant5;
-// ------------------------------------------------------------------------------------
-
 // import React, { useRef } from "react";
-// import { motion, useInView } from "framer-motion";
+// import { motion, useInView, useMotionValue, useTransform } from "framer-motion";
 // import {
 //   Code,
 //   Cloud,
@@ -925,171 +650,443 @@ export default ServicesVariant5;
 //   Settings,
 //   Bot,
 // } from "lucide-react";
+// import SectionHeading from "../components/SectionHeading";
 
-// // Minimalist Cards with Floating Elements
-// const ServicesVariant6 = () => {
+// // Bold Typography with Kinetic Energy
+// const ServicesVariant5 = () => {
 //   const ref = useRef(null);
 //   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
 //   const services = [
 //     {
-//       icon: <Bot size={24} />,
-//       title: "AI Solutions",
+//       icon: <Bot size={36} />,
+//       title: "AI SOLUTIONS",
+//       subtitle: "INTELLIGENT AUTOMATION",
 //       description:
-//         "Smart automation and machine learning solutions that transform your business operations.",
-//       color: "bg-purple-100",
-//       iconColor: "text-purple-600",
-//       borderColor: "border-purple-200",
-//       hoverColor: "hover:bg-purple-50",
+//         "Revolutionary artificial intelligence that transforms your business operations with smart automation and predictive analytics.",
+//       color: "from-purple-500 to-violet-700",
+//       number: "01",
 //     },
 //     {
-//       icon: <Smartphone size={24} />,
-//       title: "Mobile Development",
+//       icon: <Smartphone size={36} />,
+//       title: "MOBILE DEV",
+//       subtitle: "CROSS-PLATFORM MASTERY",
 //       description:
-//         "Native and cross-platform mobile applications with exceptional user experiences.",
-//       color: "bg-blue-100",
-//       iconColor: "text-blue-600",
-//       borderColor: "border-blue-200",
-//       hoverColor: "hover:bg-blue-50",
+//         "Native and cross-platform mobile applications that deliver exceptional performance and user experience.",
+//       color: "from-blue-500 to-cyan-700",
+//       number: "02",
 //     },
 //     {
-//       icon: <Settings size={24} />,
-//       title: "Software Development",
+//       icon: <Settings size={36} />,
+//       title: "SOFTWARE DEV",
+//       subtitle: "ENTERPRISE SOLUTIONS",
 //       description:
-//         "Custom software solutions built for scalability, performance, and security.",
-//       color: "bg-green-100",
-//       iconColor: "text-green-600",
-//       borderColor: "border-green-200",
-//       hoverColor: "hover:bg-green-50",
+//         "Scalable software architectures built with cutting-edge technologies and industry best practices.",
+//       color: "from-green-500 to-emerald-700",
+//       number: "03",
 //     },
 //     {
-//       icon: <Code size={24} />,
-//       title: "Web Development",
+//       icon: <Code size={36} />,
+//       title: "WEB DEV",
+//       subtitle: "DIGITAL EXPERIENCES",
 //       description:
-//         "Modern web applications that captivate users with stunning visuals.",
-//       color: "bg-orange-100",
-//       iconColor: "text-orange-600",
-//       borderColor: "border-orange-200",
-//       hoverColor: "hover:bg-orange-50",
+//         "Modern web applications that captivate users with stunning visuals and seamless interactions.",
+//       color: "from-orange-500 to-red-700",
+//       number: "04",
 //     },
 //     {
-//       icon: <Network size={24} />,
-//       title: "IT Consulting",
+//       icon: <Network size={36} />,
+//       title: "IT CONSULTING",
+//       subtitle: "STRATEGIC GUIDANCE",
 //       description:
-//         "Strategic technology consulting that aligns with your business objectives.",
-//       color: "bg-indigo-100",
-//       iconColor: "text-indigo-600",
-//       borderColor: "border-indigo-200",
-//       hoverColor: "hover:bg-indigo-50",
+//         "Expert technology consulting that aligns your digital infrastructure with business objectives.",
+//       color: "from-indigo-500 to-purple-700",
+//       number: "05",
 //     },
 //     {
-//       icon: <HeadphonesIcon size={24} />,
-//       title: "IT Support",
+//       icon: <HeadphonesIcon size={36} />,
+//       title: "IT SUPPORT",
+//       subtitle: "24/7 RELIABILITY",
 //       description:
-//         "Comprehensive support ensuring optimal performance and minimal downtime.",
-//       color: "bg-pink-100",
-//       iconColor: "text-pink-600",
-//       borderColor: "border-pink-200",
-//       hoverColor: "hover:bg-pink-50",
+//         "Comprehensive support services ensuring optimal performance and minimal downtime for your systems.",
+//       color: "from-pink-500 to-rose-700",
+//       number: "06",
 //     },
 //     {
-//       icon: <Cloud size={24} />,
-//       title: "Cloud Solutions",
+//       icon: <Cloud size={36} />,
+//       title: "CLOUD SOLUTIONS",
+//       subtitle: "INFINITE SCALE",
 //       description:
-//         "End-to-end cloud strategies for improved efficiency and scalability.",
-//       color: "bg-cyan-100",
-//       iconColor: "text-cyan-600",
-//       borderColor: "border-cyan-200",
-//       hoverColor: "hover:bg-cyan-50",
+//         "Complete cloud strategies that maximize efficiency, security, and cost-effectiveness for your business.",
+//       color: "from-sky-500 to-blue-700",
+//       number: "07",
 //     },
 //   ];
 
 //   return (
-//     <section
-//       className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-20"
-//       ref={ref}
-//     >
-//       <div className="container mx-auto px-4">
-//         <motion.div
-//           initial={{ opacity: 0, y: 30 }}
-//           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-//           transition={{ duration: 0.6 }}
-//           className="text-center mb-[64px]"
-//         >
-//           <h2 className="text-5xl font-light text-gray-800 mb-4">
-//             Our <span className="font-bold">Services</span>
-//           </h2>
-//           <div className="w-[64px] h-0.5 bg-gray-300 mx-auto mb-6" />
-//           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-//             Minimalist excellence in every solution we deliver
-//           </p>
-//         </motion.div>
+//     <section className="section bg-neutral-50" ref={ref}>
+//       <div className="container-custom">
+//         {/* Dynamic background pattern */}
+//         <div className="absolute inset-0 opacity-5"></div>
+//         <div className="absolute inset-0 opacity-10">
+//           <div
+//             className="absolute inset-0"
+//             style={{
+//               backgroundImage: `
+//             radial-gradient(circle at 2px 2px, #6366f1 1px, transparent 0)
+//           `,
+//               backgroundSize: "40px 40px",
+//             }}
+//           />
+//         </div>
 
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-//           {services.map((service, index) => (
-//             <motion.div
-//               key={index}
-//               initial={{ opacity: 0, y: 50 }}
-//               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-//               transition={{ duration: 0.6, delay: index * 0.1 }}
-//               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-//               className="group"
+//         <div className="container mx-auto px-4 relative z-10">
+//           <motion.div
+//             initial={{ opacity: 0, y: 50 }}
+//             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+//             transition={{ duration: 0.8 }}
+//             className="text-center mb-20"
+//           >
+//             <motion.h2
+//               className="text-6xl font-black text-black mb-4 tracking-tighter leading-none"
+//               initial={{ scale: 0.8 }}
+//               animate={isInView ? { scale: 1 } : { scale: 0.8 }}
+//               transition={{ duration: 1, type: "spring", stiffness: 100 }}
 //             >
-//               <div
-//                 className={`relative p-[32px] bg-white rounded-2xl border ${service.borderColor} ${service.hoverColor} transition-all duration-300 shadow-sm hover:shadow-lg`}
+//               SERVICES
+//             </motion.h2>
+//             <motion.div
+//               className="flex justify-center items-center space-x-4 mb-[32px]"
+//               initial={{ width: 0 }}
+//               animate={isInView ? { width: "auto" } : { width: 0 }}
+//               transition={{ duration: 1, delay: 0.5 }}
+//             >
+//               <div className="h-1 w-20 bg-black" />
+//               <div className="text-sm font-bold tracking-widest text-black uppercase">
+//                 you believe we achieve
+//               </div>
+//               <div className="h-1 w-20 bg-black" />
+//             </motion.div>
+//             <p className="text-xl text-gray-600 max-w-3xl mx-auto font-medium">
+//               Solutions that move your business forward
+//             </p>
+//           </motion.div>
+
+//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+//             {services.map((service, index) => (
+//               <motion.div
+//                 key={index}
+//                 initial={{
+//                   opacity: 0,
+//                   x: index % 2 === 0 ? -100 : 100,
+//                   rotateZ: index % 2 === 0 ? -5 : 5,
+//                 }}
+//                 animate={
+//                   isInView
+//                     ? {
+//                         opacity: 1,
+//                         x: 0,
+//                         rotateZ: 0,
+//                       }
+//                     : {
+//                         opacity: 0,
+//                         x: index % 2 === 0 ? -100 : 100,
+//                         rotateZ: index % 2 === 0 ? -5 : 5,
+//                       }
+//                 }
+//                 transition={{
+//                   duration: 0.8,
+//                   delay: index * 0.1,
+//                   type: "spring",
+//                   stiffness: 80,
+//                 }}
+//                 whileHover={{
+//                   scale: 1.02,
+//                   rotateZ: index % 2 === 0 ? 1 : -1,
+//                   transition: { duration: 0.3 },
+//                 }}
+//                 className="group cursor-pointer"
 //               >
-//                 {/* Floating icon */}
-//                 <motion.div
-//                   whileHover={{ scale: 1.1, rotate: 5 }}
-//                   className={`w-12 h-12 ${service.color} rounded-xl flex items-center justify-center mb-6 ${service.iconColor}`}
-//                 >
-//                   {service.icon}
-//                 </motion.div>
+//                 <div className="relative p-[32px] bg-gray-50 hover:bg-white transition-all duration-500 border-2 border-gray-200 hover:border-black rounded-none overflow-hidden">
+//                   {/* Number overlay */}
+//                   <div className="absolute top-0 right-0 text-8xl font-black text-gray-100 group-hover:text-gray-200 transition-colors duration-500 leading-none">
+//                     {service.number}
+//                   </div>
 
-//                 {/* Content */}
-//                 <h3 className="text-xl font-semibold text-gray-800 mb-3">
-//                   {service.title}
-//                 </h3>
-//                 <p className="text-gray-600 text-sm leading-relaxed mb-6">
-//                   {service.description}
-//                 </p>
+//                   {/* Kinetic icon */}
+//                   <motion.div
+//                     whileHover={{
+//                       scale: 1.2,
+//                       rotate: 360,
+//                     }}
+//                     transition={{
+//                       duration: 0.8,
+//                       type: "spring",
+//                       stiffness: 200,
+//                     }}
+//                     className={`relative z-10 w-20 h-20 bg-gradient-to-r ${service.color} rounded-full flex items-center justify-center mb-[32px] text-white shadow-lg`}
+//                   >
+//                     {service.icon}
+//                   </motion.div>
 
-//                 {/* Minimal CTA */}
-//                 <motion.button
-//                   whileHover={{ x: 5 }}
-//                   className={`text-sm font-medium ${service.iconColor} hover:underline transition-all duration-200`}
-//                 >
-//                   Learn more →
-//                 </motion.button>
+//                   {/* Explosive typography */}
+//                   <motion.div
+//                     whileHover={{ x: 10 }}
+//                     transition={{ type: "spring", stiffness: 300 }}
+//                   >
+//                     <h3 className="text-4xl font-black text-black mb-2 tracking-tight group-hover:tracking-wide transition-all duration-300">
+//                       {service.title}
+//                     </h3>
+//                     <p className="text-sm font-bold text-gray-500 mb-4 tracking-widest uppercase">
+//                       {service.subtitle}
+//                     </p>
+//                     <p className="text-gray-700 mb-[32px] leading-relaxed font-medium">
+//                       {service.description}
+//                     </p>
+//                   </motion.div>
 
-//                 {/* Floating dots */}
-//                 <div className="absolute top-4 right-4 flex space-x-1">
-//                   {[...Array(3)].map((_, i) => (
+//                   {/* Kinetic button */}
+//                   <motion.button
+//                     whileHover={{
+//                       scale: 1.05,
+//                       x: 20,
+//                     }}
+//                     whileTap={{ scale: 0.95 }}
+//                     className={`
+//                     px-[32px] py-4 bg-gray-800 text-white font-bold tracking-widest text-sm
+//                     hover:bg-gradient-to-r ${service.color} transition-all duration-300
+//                     transform skew-x-[-15deg] hover:skew-x-0
+//                   `}
+//                   >
+//                     <span className="block transform skew-x-[15deg] hover:skew-x-0">
+//                       LEARN MORE →
+//                     </span>
+//                   </motion.button>
+
+//                   {/* Kinetic accent lines */}
+//                   <motion.div
+//                     className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-transparent via-gray-800 to-transparent"
+//                     initial={{ width: "0%" }}
+//                     whileHover={{ width: "100%" }}
+//                     transition={{ duration: 0.5 }}
+//                   />
+
+//                   <motion.div
+//                     className="absolute top-0 right-0 w-1 bg-gradient-to-b from-transparent via-gray-800 to-transparent"
+//                     initial={{ height: "0%" }}
+//                     whileHover={{ height: "100%" }}
+//                     transition={{ duration: 0.5, delay: 0.2 }}
+//                   />
+
+//                   {/* Energy particles */}
+//                   {[...Array(5)].map((_, i) => (
 //                     <motion.div
 //                       key={i}
-//                       className={`w-1.5 h-1.5 ${service.color} rounded-full`}
+//                       className="absolute w-1 h-1 bg-gray-800 rounded-full opacity-0 group-hover:opacity-60"
+//                       style={{
+//                         top: Math.random() * 100 + "%",
+//                         left: Math.random() * 100 + "%",
+//                       }}
 //                       animate={{
-//                         scale: [1, 1.2, 1],
-//                         opacity: [0.5, 1, 0.5],
+//                         scale: [0, 1, 0],
+//                         x: [0, Math.random() * 50 - 25],
+//                         y: [0, Math.random() * 50 - 25],
 //                       }}
 //                       transition={{
-//                         duration: 2,
+//                         duration: 1,
 //                         repeat: Infinity,
-//                         delay: i * 0.2,
+//                         delay: Math.random() * 2,
 //                       }}
 //                     />
 //                   ))}
+//                   <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+//                   <div className="absolute bottom-4 left-4 w-2 h-2 rounded-full bg-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 //                 </div>
-//               </div>
-//             </motion.div>
-//           ))}
+//               </motion.div>
+//             ))}
+//           </div>
 //         </div>
 //       </div>
 //     </section>
 //   );
 // };
 
-// export default ServicesVariant6;
+// export default ServicesVariant5;
+// ------------------------------------------------------------------------------------
+
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import {
+  Code,
+  Cloud,
+  Smartphone,
+  HeadphonesIcon,
+  Network,
+  Settings,
+  Bot,
+} from "lucide-react";
+
+// Minimalist Cards with Floating Elements
+const ServicesVariant6 = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+
+  const services = [
+    {
+      icon: <Bot size={24} />,
+      title: "AI Solutions",
+      description:
+        "Smart automation and machine learning solutions that transform your business operations.",
+      color: "bg-purple-100",
+      iconColor: "text-purple-600",
+      borderColor: "border-purple-200",
+      hoverColor: "hover:bg-purple-50",
+    },
+    {
+      icon: <Smartphone size={24} />,
+      title: "Mobile Development",
+      description:
+        "Native and cross-platform mobile applications with exceptional user experiences.",
+      color: "bg-blue-100",
+      iconColor: "text-blue-600",
+      borderColor: "border-blue-200",
+      hoverColor: "hover:bg-blue-50",
+    },
+    {
+      icon: <Settings size={24} />,
+      title: "Software Development",
+      description:
+        "Custom software solutions built for scalability, performance, and security.",
+      color: "bg-green-100",
+      iconColor: "text-green-600",
+      borderColor: "border-green-200",
+      hoverColor: "hover:bg-green-50",
+    },
+    {
+      icon: <Code size={24} />,
+      title: "Web Development",
+      description:
+        "Modern web applications that captivate users with stunning visuals.",
+      color: "bg-orange-100",
+      iconColor: "text-orange-600",
+      borderColor: "border-orange-200",
+      hoverColor: "hover:bg-orange-50",
+    },
+    {
+      icon: <Network size={24} />,
+      title: "IT Consulting",
+      description:
+        "Strategic technology consulting that aligns with your business objectives.",
+      color: "bg-indigo-100",
+      iconColor: "text-indigo-600",
+      borderColor: "border-indigo-200",
+      hoverColor: "hover:bg-indigo-50",
+    },
+    {
+      icon: <HeadphonesIcon size={24} />,
+      title: "IT Support",
+      description:
+        "Comprehensive support ensuring optimal performance and minimal downtime.",
+      color: "bg-pink-100",
+      iconColor: "text-pink-600",
+      borderColor: "border-pink-200",
+      hoverColor: "hover:bg-pink-50",
+    },
+    {
+      icon: <Cloud size={24} />,
+      title: "Cloud Solutions",
+      description:
+        "End-to-end cloud strategies for improved efficiency and scalability.",
+      color: "bg-cyan-100",
+      iconColor: "text-cyan-600",
+      borderColor: "border-cyan-200",
+      hoverColor: "hover:bg-cyan-50",
+    },
+  ];
+
+  return (
+    <section className="section bg-neutral-50" ref={ref}>
+      <div className="container-custom">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-[64px]"
+        >
+          <h2 className="text-5xl font-light text-gray-800 mb-4">
+            Our <span className="font-bold">Services</span>
+          </h2>
+          <div className="w-[64px] h-0.5 bg-gray-300 mx-auto mb-6" />
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            You Believe We Achieve
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              className="group"
+            >
+              <div
+                className={`relative p-[32px] bg-white rounded-2xl border ${service.borderColor} ${service.hoverColor} transition-all duration-300 shadow-sm hover:shadow-lg`}
+              >
+                {/* Floating icon */}
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  className={`w-12 h-12 ${service.color} rounded-xl flex items-center justify-center mb-6 ${service.iconColor}`}
+                >
+                  {service.icon}
+                </motion.div>
+
+                {/* Content */}
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                  {service.description}
+                </p>
+
+                {/* Minimal CTA */}
+                <motion.button
+                  whileHover={{ x: 5 }}
+                  className={`text-sm font-medium ${service.iconColor} hover:underline transition-all duration-200`}
+                >
+                  Learn more →
+                </motion.button>
+
+                {/* Floating dots */}
+                <div className="absolute top-4 right-4 flex space-x-1">
+                  {[...Array(3)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className={`w-1.5 h-1.5 ${service.color} rounded-full`}
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.5, 1, 0.5],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: i * 0.2,
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ServicesVariant6;
 // ------------------------------------------------------------------------------------
 
 // import React, { useRef } from "react";

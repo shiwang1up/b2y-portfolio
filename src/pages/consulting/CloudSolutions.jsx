@@ -3,7 +3,7 @@ import { Cloud, Server, Shield, Zap, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { scroller } from 'react-scroll';
 
-const CloudSolutions: React.FC = () => {
+const CloudSolutions = () => {
   const navigate = useNavigate();
   const handleNavClick = (to) => {
     if (location.pathname === "/") {

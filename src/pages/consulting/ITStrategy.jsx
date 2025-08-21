@@ -3,7 +3,7 @@ import { Target, TrendingUp, Shield, Users, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { scroller } from 'react-scroll';
 
-const ITStrategy: React.FC = () => {
+const ITStrategy = () => {
   const navigate = useNavigate();
   const handleNavClick = (to) => {
     if (location.pathname === "/") {

@@ -3,7 +3,7 @@ import { Brain, TrendingUp, Target, Zap, ArrowRight } from 'lucide-react';
 import { scroller } from 'react-scroll';
 import { useNavigate } from 'react-router-dom';
 
-const MachineLearning: React.FC = () => {
+const MachineLearning = () => {
   const navigate = useNavigate();
   const handleNavClick = (to) => {
     if (location.pathname === "/") {

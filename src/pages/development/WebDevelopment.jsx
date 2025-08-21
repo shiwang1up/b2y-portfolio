@@ -3,7 +3,7 @@ import { Globe, Smartphone, Zap, Shield, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { scroller } from 'react-scroll';
 
-const WebDevelopment: React.FC = () => {
+const WebDevelopment = () => {
   const navigate = useNavigate();
   const handleNavClick = (to) => {
     if (location.pathname === "/") {

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Brain, Code, Users, CheckCircle } from 'lucide-react';
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
     <div className="bg-white">
       {/* Hero Section */}

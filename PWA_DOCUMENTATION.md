@@ -27,24 +27,22 @@ You need to create a few files manually in your project root and `public` folder
 Create a `workbox-config.cjs` file in your project root. This file tells Workbox what files to cache after you build your project.
 
 **`workbox-config.cjs`:**
+
 ```javascript
 module.exports = {
   // The directory to look for files to precache. This should be your build output directory.
-  globDirectory: 'dist/',
+  globDirectory: "dist/",
 
   // The patterns to match for files to precache.
   globPatterns: [
-    '**/*.{html,js,css,png,svg,jpg,gif,json,woff,woff2,eot,ico,webmanifest,map}'
+    "**/*.{html,js,css,png,svg,jpg,gif,json,woff,woff2,eot,ico,webmanifest,map}",
   ],
 
   // The destination for the generated service worker file.
-  swDest: 'dist/sw.js',
+  swDest: "dist/sw.js",
 
   // Optionally, ignore certain URL parameters.
-  ignoreURLParametersMatching: [
-    /^utm_/,
-    /^fbclid$/
-  ]
+  ignoreURLParametersMatching: [/^utm_/, /^fbclid$/],
 };
 ```
 
@@ -53,6 +51,7 @@ module.exports = {
 Create a `manifest.json` file inside your `public` directory. This file provides the browser with metadata about your PWA.
 
 **`public/manifest.json`:**
+
 ```json
 {
   "name": "B2Y Portfolio",
@@ -88,15 +87,22 @@ Add the icons referenced in your manifest (`pwa-192x192.png` and `pwa-512x512.pn
 You need to add code to your application to register the service worker in the browser. The best place for this is in your main entry file, `src/main.jsx`.
 
 **`src/main.jsx`:**
+
 ```javascript
 // Add this code to your existing main.jsx
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').then(registration => {
-      console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }).catch(error => {
-      console.log('ServiceWorker registration failed: ', error);
-    });
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then((registration) => {
+        console.log(
+          "ServiceWorker registration successful with scope: ",
+          registration.scope
+        );
+      })
+      .catch((error) => {
+        console.log("ServiceWorker registration failed: ", error);
+      });
   });
 }
 ```
@@ -108,11 +114,12 @@ if ('serviceWorker' in navigator) {
 Ensure your `public/index.html` file links to the manifest.
 
 **`public/index.html`:**
+
 ```html
 <head>
   ...
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#ffffff">
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#ffffff" />
   ...
 </head>
 ```
@@ -124,9 +131,11 @@ Ensure your `public/index.html` file links to the manifest.
 This is a two-step process. You first build your Vite project, and *then* you run Workbox to generate the service worker based on the build output.
 
 1.  **Build the Vite project:**
+
     ```bash
     npm run build
     ```
+
     This creates the `dist` directory with your production-ready app.
 
 2.  **Generate the Service Worker:**
@@ -140,6 +149,7 @@ This is a two-step process. You first build your Vite project, and *then* you ru
 To make this easier, you should update the `build` script in your `package.json` to run both commands automatically.
 
 **`package.json`:**
+
 ```json
 "scripts": {
   "dev": "vite",
@@ -148,4 +158,5 @@ To make this easier, you should update the `build` script in your `package.json`
   "preview": "vite preview"
 },
 ```
+
 Now, when you run `npm run build`, it will build the app and generate the service worker in one step.

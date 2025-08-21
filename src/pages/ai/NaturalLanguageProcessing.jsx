@@ -3,7 +3,7 @@ import { MessageSquare, Bot, FileText, Languages, ArrowRight } from 'lucide-reac
 import { useNavigate } from 'react-router-dom';
 import { scroller } from 'react-scroll';
 
-const NaturalLanguageProcessing: React.FC = () => {
+const NaturalLanguageProcessing = () => {
   const navigate = useNavigate();
   const handleNavClick = (to) => {
     if (location.pathname === "/") {
